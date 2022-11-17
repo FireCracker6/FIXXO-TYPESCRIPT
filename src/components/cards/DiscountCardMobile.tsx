@@ -11,7 +11,7 @@ const DiscountCardMobile: React.FC<Props> = ({item}) => {
 
 
 
-  const { incrementQuantity }= useShoppingCart() as ShoppingCartContextInterface
+/*   const { incrementQuantity }= useShoppingCart() as ShoppingCartContextInterface */
 
   const addToWishList = (e: any) => {
     console.log(`added to wish list)`)
@@ -30,7 +30,7 @@ const DiscountCardMobile: React.FC<Props> = ({item}) => {
       <ul className="card-menu ">
         <li><button onClick={addToWishList} className='productButton'><i className="fa-light fa-heart "></i></button></li>
         <li><button onClick={addToCompare}  className='productButton' ><i className="fa-light fa-code-compare fa-flip-vertical"></i></button></li>
-        <li><button onClick={() => incrementQuantity({articleNumber: item.articleNumber, product: item})}  className='productButton'><i className="fa-light fa-bag-shopping"></i></button></li>
+        <li><button /* onClick={() => incrementQuantity({articleNumber: item.articleNumber, product: item})} */  className='productButton'><i className="fa-light fa-bag-shopping"></i></button></li>
         </ul>
       <div className="col-md-8">
         <div className="card-body">

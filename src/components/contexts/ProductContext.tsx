@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { createContext } from "react";
 import {Products} from '../models/productsModel'
-import {Todo} from '../models/todoModel'
+
 
 export interface ProductContextInterface {
    
-    product: string
+    product: any
     products: Products[]
-    featuredProducts: Products[]
-    getProduct: (articleNumber: string) => void
+    featuredProducts: Products[] 
+    discountProducts: Products[]
+    getProduct: (articleNumber: number) => void
     getProducts: () => void
     getFeaturedProducts: (take: number) => void
+    getDiscountProducts: (take: number) => void
 
 
   
@@ -59,12 +61,12 @@ export const ProductProvider= ({children}: IProductProps)  => {
         const res = await fetch(url + `?take=${take}`)
         setDiscountProducts(await res.json())
     }
-    const getProduct = async (articleNumber: string) => {
+    const getProduct = async (articleNumber: number) => {
         const res = await fetch(url + `${articleNumber}`)
         setProduct(await res.json())
     }
 
-    return <ProductContext.Provider value={{ product, getProduct, getProducts,  products, featuredProducts, getFeaturedProducts}}>
+    return <ProductContext.Provider value={{ product, getProduct, getProducts,  products, featuredProducts,discountProducts, getFeaturedProducts, getDiscountProducts}}>
         {children}
     </ProductContext.Provider>
 

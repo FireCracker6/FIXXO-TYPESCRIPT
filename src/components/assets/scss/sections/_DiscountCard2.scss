@@ -227,11 +227,20 @@ font-size: 1rem;
 
     @media (min-width:1200px) {
         .disc-card .grid-wrapper {
-            width: 100%;
+            display: grid;
+            width: 1110px;
+            height: 500px;
             
             .item-3 {
                 display: grid;
             }
+          .item-2 {
+           > h4 {
+                display: flex;
+                width: 100%;
+            }
+          }
+        
         }
 
         

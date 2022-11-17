@@ -1,24 +1,33 @@
 import React from 'react'
 import NavbarGlobal from '../components/NavbarGlobal'
 import Footer from '../components/Footer'
-/* import TopBannerDiscount from '../components/TopBannerDiscount' */
-import BreadCrumbsSections from '../components/sections/BreadCrumbsSections'
+ import TopBannerDiscount from '../components/TopBannerDiscount' 
+ import BreadCrumbsSections from '../components/sections/BreadCrumbsSections'
 import { ProductDetailsInfoGrid } from '../components/sections/ProductDetailsInfoGrid'
-/* import { ProductDetailGalleryHeader } from '../components/ProductDetailGalleryHeader' */
-
-
+ import { ProductDetailGalleryHeader } from '../components/ProductDetailGalleryHeader' 
+import {Products} from '../components/models/productsModel'
 import { ProductContextInterface, useProductContext } from '../components/contexts/ProductContext';
-
-
 import { useEffect } from 'react'
 
+interface IProductTilesProps {
+  
+  items: Products[]
+  
+}
 
 
 
-const  ProductDetailsView: React.FC = () =>  {
 
 
-  const product = useProductContext();
+
+
+
+
+
+const  ProductDetailsView: React.FC= () =>  {
+
+
+  const product =   useProductContext() as ProductContextInterface
   const {featuredProducts, getFeaturedProducts} = useProductContext() as ProductContextInterface
   
   useEffect(() => {
@@ -34,11 +43,11 @@ const  ProductDetailsView: React.FC = () =>  {
     <>
 <NavbarGlobal /> 
 
-  {/*   <TopBannerDiscount /> */}
+   <TopBannerDiscount />
     <BreadCrumbsSections currentPage="Product Details" /> 
    
-    <ProductDetailsInfoGrid  items={product}/>
-   {/*  <ProductDetailGalleryHeader  title="Related Products" items={featuredProducts}  />  */}
+    <ProductDetailsInfoGrid  items={featuredProducts}/>
+    <ProductDetailGalleryHeader  title="Related Products" items={featuredProducts}  />  
    
     <div className="container">
 

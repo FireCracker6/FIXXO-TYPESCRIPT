@@ -253,7 +253,7 @@ a.logoType:hover {
 }
 
 body {
-  background-color: rgb(170, 205, 203);
+  background-color: #FFFFFF;
 }
 
 .__navbar {
@@ -2858,10 +2858,18 @@ a.quickview-button:hover {
 }
 @media (min-width: 1200px) {
   .disc-card .grid-wrapper {
-    width: 100%;
+    display: grid;
+    width: 1110px;
+    height: 500px;
   }
   .disc-card .grid-wrapper .item-3 {
     display: grid;
+  }
+  .disc-card .grid-wrapper .item-2 > h4 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
   }
   .disc-card .card {
     width: 1000px;

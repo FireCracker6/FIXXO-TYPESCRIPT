@@ -7,18 +7,22 @@ import {  useEffect } from 'react';
 import {ProductContextInterface, useProductContext } from '../contexts/ProductContext'
 import { ShoppingCartContextInterface, useShoppingCart } from '../contexts/ShoppingCartContext'
 import { currencyFormatter } from '../utilities/currencyFormatter'
+import {Products} from '../models/productsModel'
 
-interface Props {
-   
-    items: any
-}
+interface IProductTilesProps {
+  
+    items: Products[]
+    
+  }
+  
 
 
 
+export const ProductDetailsInfoGrid: React.FC<IProductTilesProps> = ({ items = []}) => {
+    const {id} = useParams() 
 
-export const ProductDetailsInfoGrid: React.FC<Props> = ({ items = []}) => {
-    const {id} = useParams()
-    const { incrementQuantity}= useShoppingCart() as ShoppingCartContextInterface
+    const idNumber = id as unknown as number
+  const { incrementQuantity}= useShoppingCart() as ShoppingCartContextInterface 
    
   
 
@@ -27,15 +31,15 @@ export const ProductDetailsInfoGrid: React.FC<Props> = ({ items = []}) => {
     const {product, getProduct} = useProductContext() as ProductContextInterface
   const {featuredProducts}  = useProductContext() as ProductContextInterface
     useEffect(() => {
-        getProduct('')
+        getProduct(idNumber)
       
-    },[id])
+    },[])
 
 
 
     
-  /*    let currentPage = "Product Details"
-     document.title = `${product.name} || Fixxo` */
+   let currentPage = "Product Details"
+     document.title = `${product.name} || Fixxo`
 
 
   return (
@@ -46,7 +50,7 @@ export const ProductDetailsInfoGrid: React.FC<Props> = ({ items = []}) => {
 
                
 
-            <ProductDetailsImages />
+            <ProductDetailsImages product={[]}/>
        
 
 
@@ -54,7 +58,7 @@ export const ProductDetailsInfoGrid: React.FC<Props> = ({ items = []}) => {
 
         <div className="product-detail-description">
            <div className="prod-desc-1">
-           {/*  <h2 data-testid="pName" >{product.name}</h2> */}
+         <h2 data-testid="pName" >{product.name}</h2> 
          
             <p><small>SKU: 12345670 BRAND: The Northland</small></p>
             <div className="text-theme">
@@ -64,7 +68,7 @@ export const ProductDetailsInfoGrid: React.FC<Props> = ({ items = []}) => {
                 <i className="fa-sharp fa-solid fa-star"></i>
                 <i className="fa-sharp fa-solid fa-star"></i>
               </div>  
-          {/*     <h3>{currencyFormatter(product.price)}</h3> */}
+           <h3>{currencyFormatter(product.price)}</h3> 
               <p>Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. (read more) </p>
            </div>
            <div className="prod-desc-2">
@@ -108,18 +112,18 @@ export const ProductDetailsInfoGrid: React.FC<Props> = ({ items = []}) => {
                     <div className="center">
                    
                    {/* did not have time to get this to work when adding to cart */}
-                    {/*     <QuantityButton /> */}
+                     <QuantityButton number={0} /> 
 
                         
                      </div> 
   
                      
                 </div>
-             {/*    <div className="cart-red-buttons "><button onClick={() => incrementQuantity({articleNumber: product.articleNumber, product: product }  )} className="post-button">Add To Cart</button>
-                    </div>  */}
+               <div className="cart-red-buttons "><button onClick={() => incrementQuantity({articleNumber: product.articleNumber, product: product }  )} className="post-button">Add To Cart</button>
+                    </div>  
             </div>
        
-       {/*     <div className="item-4">
+           <div className="item-4">
                 <div className="share">
                     <h2>Share:  </h2>
                 
@@ -132,7 +136,7 @@ export const ProductDetailsInfoGrid: React.FC<Props> = ({ items = []}) => {
                         </div>
                   
                 </div>
-            </div>  */}
+            </div>  
            </div>
         </div>
 

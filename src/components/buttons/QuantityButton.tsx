@@ -1,24 +1,28 @@
 import React from 'react'
 import { useState } from 'react'
 
+interface Props 
+{
+    number: number
 
+}
 // This is original code by Leah Saxe
-export const QuantityButton = ({number}) => {
-   const [count, setCount] =  useState((countInitial) => {
+export const QuantityButton:React.FC<Props> = ({number}) => {
+   const [count, setCount] =  useState(() => {
     return 1
    })
 
 
 
     function decrementCount() {
-        setCount(prevCount =>
+        setCount((prevCount: number) =>
             prevCount - 1)
         }
 
 
     function incrementCount() {
         
-        setCount(prevCount =>
+        setCount((prevCount: number) =>
             prevCount + 1)
         }
 
@@ -37,7 +41,7 @@ export const QuantityButton = ({number}) => {
         break
        
     }
-      function countNumber ({count}) {
+      function countNumber () {
         console.log(count)
         return count
        

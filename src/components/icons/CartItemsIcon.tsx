@@ -2,16 +2,16 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 interface Props {
-  link: string 
+
   icon: any
   quantity:any
   type: any
 }
 
-const MainMenuIcon: React.FC<Props> = ({link, icon, quantity }) => {
+const CartItemsIcon: React.FC<Props> = ({icon, quantity }) => {
   return (
    
-    <NavLink className=" __btn-background" to={link} end>
+    <NavLink className=" __btn-background" to="" end>
     
         <span className=" badge rounded-pill bg-theme">{quantity}</span>
       
@@ -25,4 +25,4 @@ const MainMenuIcon: React.FC<Props> = ({link, icon, quantity }) => {
   )
 }
 
-export default MainMenuIcon
+export default CartItemsIcon

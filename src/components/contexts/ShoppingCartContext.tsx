@@ -15,9 +15,7 @@ export interface ShoppingCartContextInterface {
 }
 export  interface IShoppingCartProps {
     children: any
-    item: any
-    quantity: number
-    cartItems?: any
+   
     
     
 }

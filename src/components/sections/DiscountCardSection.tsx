@@ -33,7 +33,7 @@ const DiscountCard2: React.FC<Props> = ( {items = []}) => {
    
         
        <div className="item-2">
-       <h4>Best Selling Product</h4>
+       <h4>Best&nbsp;Selling&nbsp;Product</h4>
        {
 
 items.map(product =>    <DiscountCardMobile key={product.articleNumber} item={product} />)

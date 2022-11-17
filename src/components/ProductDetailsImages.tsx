@@ -1,17 +1,25 @@
 import React, {useState, useEffect }from 'react'
 import { useParams} from 'react-router-dom'
 import { ProductContextInterface, useProductContext } from './contexts/ProductContext'
+import {Products} from './models/productsModel'
+
+interface IProductTilesProps {
+  
+  product: Products[]
+  
+}
 
 
-
-export const ProductDetailsImages: React.FC= () => {
+export const ProductDetailsImages: React.FC<IProductTilesProps>= () => {
 
   const {id} = useParams()
 
     const {product, getProduct} = useProductContext() as ProductContextInterface
+    const idNumber = id as unknown as number
 
     useEffect(() => {
-        getProduct('')
+         getProduct(idNumber)
+    
     },[])
 
 
@@ -24,7 +32,7 @@ export const ProductDetailsImages: React.FC= () => {
     <div className="item-1">
 
        
-{/* 
+
         <div className="item-1-prod-images">
          <div className="item-1"> <img src={product.imageName}  alt={product.imageName} /></div>
          <div className="item-2"><img src={product.imageName} alt={product.imageName} /></div>
@@ -34,7 +42,7 @@ export const ProductDetailsImages: React.FC= () => {
    
              
         </div>
- */}
+ 
     </div>
     
 </div>

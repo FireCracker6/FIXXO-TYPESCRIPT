@@ -10,7 +10,7 @@ interface Props {
 const ProductCard: React.FC<Props> = ( {item}) => {
 
 // increments quantity in the shopping bag when user klicks the icon.
-/* const { incrementQuantity }= useShoppingCart() as ShoppingCartContextInterface */
+ const { incrementQuantity }= useShoppingCart() as ShoppingCartContextInterface 
  
    const addToWishList = (e: any) => {
     console.log(`added to wish list)`)
@@ -33,7 +33,7 @@ const ProductCard: React.FC<Props> = ( {item}) => {
                   <li><button onClick={addToWishList} className='productButton'><i className="fa-light fa-heart "></i></button></li>
                
                       <li><button  onClick={addToCompare} className='productButton' ><i className="fa-light fa-code-compare fa-flip-vertical"></i></button></li>
-                      <li><button data-testid="addToCart" title='incrementQuantity' /* onClick={() => incrementQuantity({articleNumber: item.articleNumber, product: item})} */  className='productButton'><i className="fa-light fa-bag-shopping"></i></button></li>
+                      <li><button data-testid="addToCart" title='incrementQuantity'  onClick={() => incrementQuantity({articleNumber: item.articleNumber, product: item})}  className='productButton'><i className="fa-light fa-bag-shopping"></i></button></li>
                   </ul>
               
                <div className="quickview-buttons"> <NavLink  to={`/productdetails/${item.articleNumber}`} className="quickview-button quick-btn-border">QUICK VIEW</NavLink>

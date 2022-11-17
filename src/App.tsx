@@ -3,17 +3,20 @@ import React from 'react';
 import './App.css';
 import './App.min.css';
 
-import NavbarGlobal from './components/NavbarGlobal';
-import {  BrowserRouter } from 'react-router-dom'
-import Showcase from './components/Showcase';
-import ProductsBanner from './components/ProductsBanner';
-import ProductGridSection from './components/sections/ProductGridSection';
-import {ProductContext, ProductContextInterface, ProductProvider } from './components/contexts/ProductContext';
-import ShoppingCartContext, { ShoppingCartProvider } from './components/contexts/ShoppingCartContext';
-import { useEffect } from 'react';
-import {Products} from './components/models/productsModel'
+import {  BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomeView from './views/HomeView';
-
+import ContactsView from './views/ContactsView';
+import ProductDetailsView from './views/ProductDetailsView';
+import NotFoundView from './views/NotFoundView';
+import WishListView from './views/WishListView';
+import ShoppingCartView from './views/ShoppingCartView';
+import CompareView from './views/CompareView';
+import SearchView from './views/SearchView';
+import CategoriesView from './views/CategoriesView';
+import { ProductsView } from './views/ProductsView';
+import { ProductDetailGalleryHeader } from './components/ProductDetailGalleryHeader';
+import { ShoppingCartProvider } from './components/contexts/ShoppingCartContext';
+import { ProductProvider } from './components/contexts/ProductContext';
 
 
 
@@ -21,24 +24,29 @@ const App = () => {
 
 
 
-  const {featuredProducts, getFeaturedProducts}  = React.useContext(ProductContext) as ProductContextInterface
-
-  useEffect(() => {
-    getFeaturedProducts(4)
-  
-  }, [getFeaturedProducts])
   
   return (
     <div>
      
       <BrowserRouter>
-    
-      <ProductProvider>
-  <HomeView />
-   
-   </ProductProvider>
-  
-   </BrowserRouter>
+        <ShoppingCartProvider>
+            <ProductProvider>
+              <Routes>
+                <Route path='/' element={<HomeView/>}/>
+                <Route path='/products'   element={<ProductsView title={'Products'}   /> }/>
+                <Route path='/productdetails/:id'  element={<ProductDetailsView  />}/>
+                <Route path='/productdetails/:id' element={<ProductDetailGalleryHeader title={'Related Products'} items={[]} />}/>
+                <Route path='/categories' element={<CategoriesView />}/>
+                <Route path='/contacts' element={<ContactsView />}/>
+                <Route path='/*' element={<NotFoundView />}/>
+                <Route path='/search' element={<SearchView />}/>
+                <Route path='/wishlist' element={<WishListView />}/>
+                <Route path='/shoppingcart' element={<ShoppingCartView />}/>
+                <Route path='/compare' element={<CompareView />}/>
+              </Routes>
+            </ProductProvider>
+        </ShoppingCartProvider>
+      </BrowserRouter>
     </div>
   );
 }
