@@ -1,0 +1,55 @@
+/* BLACK button*/
+.black-button {
+ 
+    background-color: #000000;
+        display: block;
+         height: 60px;
+         width: 188px;
+        align-items: center;
+              position: relative;
+     
+         padding: 3px;
+         color: $color-white;
+         text-align: center;    
+         font-family: $font-poppins;
+         font-size: 1rem;
+         font-weight: $font-weight-medium;
+         padding-top: 18px;
+         a {
+            text-decoration: none;
+           }
+         }
+        a.black-button {
+         text-decoration: none;
+        }
+        a.black-button:hover {
+            background-color: $color-red-0;
+            color:#fff;
+            transition: 0.2s ease-in-out;;
+        }
+    
+        .btn-border::after {
+            display: block;
+            content: "";
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 30px;
+            right: 10px;
+            border-bottom: 2px solid #fff;
+            border-right: 2px solid #fff;
+        }
+
+        .btn-border::before {
+            display: block;
+            content: "";
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            bottom: 30px;
+            left: 10px;
+            border-top: 2px solid #fff;
+            border-left: 2px solid #fff;
+        }
+
+       

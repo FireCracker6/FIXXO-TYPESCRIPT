@@ -1,0 +1,59 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap');
+
+
+$font-poppins: 'Poppin', sans-serif;
+$font-weight-regular: 400;
+$font-weight-medium: 600;
+$font-weight-extra-bold: 800;
+$font-size-14: 1.17rem;
+$font-size-16: 1.33rem;
+$font-size-18: 1.50rem;
+$font-size-24: 2.8125;
+$font-size-36: 3rem;
+$font-size-60: 5rem;
+
+
+// General borders 
+$border-radius-small: 8px;
+$border-radius-medium: 25px;
+$border-radious-rounded: 50px;
+
+// Colors
+$color-theme: #E6E6E6;
+$color-theme-light: #EDFCFA;
+$color-theme-dark: #0E153D;
+$color-theme-dark-light: #50546E;
+$color-dark: #080C24;
+$color-white: #FFFFFF;
+$color-gray-0: #F5F5F5;
+$color-gray-1: #E7E7E7;
+$color-gray-2: #CDCED0;
+$color-gray-3: #E4E4E4;
+$color-gray-4: #BBBBBB;
+$color-gray-5: #7E7F80;
+$color-brown-0: #CAC0BE;
+$color-brown-1: #75695C;
+$color-red-0: #FF7373;
+$color-black-btn: #23262A;
+$color-black-text: #222529;
+$color-product-instock: #82D8C6;
+$color-product-outofstock: #FE6C6C;
+$color-footer: #F8F8F8;
+
+$color-font-featured-category: #616365;
+
+// BREAKPOINTS (constructed but not used yet in this project)
+$breakpoint-sm: 380px;
+$breakpoint-md-max-width: 420px;
+$breakpoint-md: 768px;
+$breakpoint-md-max-width: 720px;
+$breakpoint-lg: 992px;
+$breakpoint-lg-max-width: 960px;
+$breakpoint-xl:1200px;
+$breakpoint-xl-max-width: 1140px;
+$breakpoint-xxl: 1400px;
+$breakpoint-xxl-max-width: 1320px;
+$breakpoint-ultra-xxl: 1920px;
+$breakpoint-ulta-xxl-max-width: 1600px;
+/* @import "../breakpoints"; */

@@ -1,0 +1,25 @@
+
+
+.__ulinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
+   font-size: 1rem;
+   font-weight: $font-weight-medium;
+   color: $color-dark;
+
+
+   a {
+    font-weight:$font-weight-medium;
+    color:#222529;
+    text-decoration: none;
+        }
+        a:hover {
+            color: $color-red-0;
+        }
+        .active {
+          color: $color-red-0;
+        }  
+}

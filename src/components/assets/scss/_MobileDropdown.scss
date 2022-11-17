@@ -1,0 +1,110 @@
+@import './core/variables';
+
+.mobile-menu button {
+  display: flex;
+  border: 1px solid black;
+    background-color: transparent;
+    color: $color-dark;
+    border: none;
+
+    font-size:1.5rem;
+  
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  
+    padding: 0;
+    margin-RIGHT: 1rem;
+    transition: 0.15s ease-in-out;
+  
+  }
+
+.mobile-container > .mobile-menu {
+  width: 100%;
+
+}
+  .mobile-menu button::after {
+    content: none;
+}
+
+.dropdown button {
+  background-color: transparent;
+  border: 1px solid $color-gray-4;
+  padding: 0.5rem;
+  border-radius: 20% !important;
+  box-shadow: none !important;
+}
+.dropdown button:focus {
+  background-color: transparent;
+  color: $color-dark;
+  border: 1px solid $color-gray-4;
+  padding: 0.5rem;
+  border-radius: 20% !important;
+  box-shadow: none !important;
+}
+.dropdown button:hover  {
+  background-color: black !important;
+  color: white;
+  border: 1px solid $color-gray-4;
+  padding: 0.5rem;
+  border-radius: 20% !important;
+  box-shadow: none !important;
+}
+.show.dropdown button:focus  {
+  background-color: black !important;
+  color: white;
+  border: 1px solid $color-gray-4;
+  padding: 0.5rem;
+  border-radius: 20% !important;
+  box-shadow: none !important;
+}
+.show.dropdown button:active  {
+  background-color: black !important;
+  border: 1px solid $color-gray-4;
+  padding: 0.5rem;
+  border-radius: 20% !important;
+  box-shadow: none !important;
+}
+
+
+.dropdown-menu.show {
+  display: block;
+  width: auto;
+  background-color: white;
+}
+.show.dropdown button:hover {
+  background-color: $color-dark;
+  border: 1px solid $color-gray-4;
+  padding: 0.5rem;
+  border-radius: 20% !important;
+  box-shadow: none !important;
+} 
+.dropdown-menu.btn.btn-primary {
+  padding-top: 0rem;
+  background-color: transparent;
+  border: none;
+width: 100%;
+}
+
+.dropdown-menu.btn.btn-primary:hover {
+  background-color: transparent;
+}
+.dropdown-menu .dropdown-item {
+  font-size: 1rem;
+  
+}
+.dropdown-menu a.dropdown-item {
+ background-color: white;
+
+}
+.dropdown-menu a.dropdown-item:hover {
+  background-color: $color-gray-1;
+  color: black;
+ }
+
+@media (min-width: 992px) {
+  .mobile-container {
+    display: none;
+  }
+}
+ 

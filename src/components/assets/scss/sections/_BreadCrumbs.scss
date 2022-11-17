@@ -1,0 +1,46 @@
+/* breadcrumbs styling */
+
+.breadcrumbs-section .container {
+    margin-top: 30px;
+    max-width: 1110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+
+    .breadcrumbs {
+        display: inline-flex;
+        align-items: center;
+        text-align: left;
+        width: 100%;
+    
+        line-height: 2rem;
+        font-size: 1rem;
+        font-family: $font-poppins;
+        font-weight: $font-weight-medium;
+        li {
+            display: inline;
+            font-size: 18px;
+
+            a {
+                color: $color-dark;
+                text-decoration: none;
+                &:hover {
+                    color: $color-red-0 ;
+                    text-decoration: underline;
+                  }
+              }
+              &+li:before {
+                padding: 8px;
+                color: black;
+                content: "\00a0\00a0>\00a0\00a0";
+              }
+          }
+        
+     }
+   
+ }
+
+
+
+

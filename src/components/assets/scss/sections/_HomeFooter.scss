@@ -1,0 +1,100 @@
+
+.home-footer {
+    margin-top: 4rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    /* background-color: #75695C; */
+    border-top: $color-gray-4;
+    border-top-width: 1px;
+    border-top-style: solid;
+    margin-bottom: 120px;
+}
+.home-footer > .item-1 {
+    margin-top: 2rem;
+    text-align: center;
+    display: block;
+
+    h3 {
+        margin-top: 1.5rem;
+        font-size: 1rem;
+        font-weight: 800;
+    }
+    p {
+  
+        font-size:1rem;
+       display: none;
+      
+    }
+    .item {
+        display: flex;
+        align-items: center;
+        line-height: 3.5rem;
+        background-color: white;
+        height: 60px;
+        width: 60px;
+        background-color: #fff;
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.09) ;
+        align-items: center;
+         }
+
+         .item:hover {
+            background-color: $color-dark;
+            color: $color-white;
+            box-shadow: 0px 5px 10px 5px rgba(183, 158, 158, 0.242) ;
+            cursor: pointer;
+         
+         }
+         .item:hover img {
+            filter: invert(100%);
+          }
+}
+
+
+
+
+
+
+ 
+     
+     @media (min-width: 1200px) {
+
+
+        .home-footer {
+            margin-top: 4rem;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            height: 247px;
+            /* background-color: #75695C; */
+            border-top: $color-gray-4;
+            border-top-width: 1px;
+            border-top-style: solid;
+            margin-bottom: 60px;
+
+            > .item-1 {
+                margin-top: 3rem;
+                text-align: center;
+                display: block;
+            }
+
+            > .item-1 h3 {
+                margin-top: 1.5rem;
+                font-size: 1.25rem;
+                font-weight: 800;
+            }
+            > .item-1 p {
+          
+                font-size:1rem;
+                display: block;
+              
+            }
+        }
+
+      
+     }

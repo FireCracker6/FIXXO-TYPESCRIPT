@@ -1,0 +1,114 @@
+.shoppingcart {
+    width: 100% !important;
+
+    .shoppingcart-item {
+      
+        margin: 30px 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+      
+
+
+
+        .item-image {
+            height: 65px;
+            width: 65px;
+            margin-right: 20px;
+            background-color: $color-gray-3;
+
+            img {
+                height: 65px;
+                width: 65px;
+            }
+           
+        }
+        .item-info {
+         
+         
+          
+            flex: 2;
+       /*      justify-content: space-between; */
+            
+            .item-info-name {
+              
+                font-weight: 500;
+                margin-bottom: 8px;
+          
+            }
+            .item-info-quantity-box {
+              
+                display: inline-block;
+                background-color: $color-gray-0;
+                
+              border: 1px solid $color-gray-1;
+              border-radius: 5px;
+            }
+
+            .number {
+               width: 25px;
+               text-align: center;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+             border-right: 1px solid $color-gray-2;
+             border-left: 1px solid $color-gray-2;
+             padding-right: 20px;
+             padding-left: 20px;
+             text-align: center;
+             background-color: $color-white;
+             font-size: 0.8rem;
+            }
+            button {
+                width: 25px;
+                font-size: 0.8rem;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            border: none;   
+            border-radius: 5px; 
+            background-color: $color-gray-0 ;           
+
+               
+            }
+
+         
+            .item-info-quantity {
+                display: flex;
+              
+                
+             
+                
+                
+            }
+           
+           
+        
+        }
+        .item-price  {
+            text-align: right;
+            width: 50px;
+            display: block;
+            border: none !important;
+            background-color: $color-white;
+            font-size: 0.8rem;
+            button {
+                border: none !important;
+                background-color:transparent !important;
+                padding: 0;
+            }
+            i {
+                font-size: 15px;
+            }
+        }
+       
+    }
+
+}
+
+@media (min-width: 1200px) { 
+.shoppingcart {
+    width: 500px !important;
+
+}
+}

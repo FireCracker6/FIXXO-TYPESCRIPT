@@ -1,0 +1,26 @@
+.top-banner-section .container {
+  
+    display: flex;
+    justify-content: center;
+  
+ }
+ .top-banner {
+    margin-top: 80px;
+    display: flex;
+    background-color: $color-white;
+    justify-content: center;
+    align-items: center;
+   
+    box-shadow: 0px 2px 10px 5px rgba(218, 217, 217, 0.185) ;
+    padding-top: 0.6rem;
+    width: 100%;
+
+    h2 {
+        color: $color-red-0;
+        font-size: 1rem;
+        font-family:$font-poppins;
+        font-weight: $font-weight-medium;
+    
+     }
+ }
+

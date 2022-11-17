@@ -1,0 +1,189 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+body, html {
+   
+      
+       font-size: 16px;
+       line-height: 1.5;
+       font-family: $font-poppins;
+       font-weight: $font-weight-regular;
+       color: $color-dark;
+       background-color:$color-white;
+       
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+   
+    
+    }
+
+    .logoType {
+        font-family: $font-poppins;
+        font-size: 35px;
+        font-weight: $font-weight-extra-bold;
+        color: $color-dark;
+     
+    }
+    a.logoType {
+        color: $color-dark;
+        text-decoration: none;
+    }
+    a.logoType:hover {
+        color: $color-dark;
+        text-decoration: none;
+    }
+
+.btn-mobile-border::after {
+    display: block;
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 14px;
+    right: 5px;
+    border-bottom: 1px solid $color-white;
+    border-right: 1px solid $color-white;
+}
+.btn-mobile-border:hover::after {
+ 
+    border-bottom: 1px solid  $color-red-0;
+    border-right: 1px solid   $color-red-0;
+}
+.btn-mobile-border::before {
+    display: block;
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    bottom: 14px;
+    left: 5px;
+    border-top: 1px solid $color-white;
+    border-left: 1px solid $color-white;
+}
+.btn-mobile-border:hover::before {
+    border-top:  1px solid  $color-red-0;
+    border-left: 1px solid  $color-red-0;
+}
+
+
+/* button border white */
+.btn-border-white::after {
+    display: block;
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    border-bottom: 2px solid $color-dark;
+    border-right: 2px solid $color-dark;
+}
+.btn-border-white::before {
+    display: block;
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    border-top: 2px solid  $color-dark;
+    border-left: 2px solid  $color-dark;
+}
+
+/* button border white */
+.btn-border-white:hover::after {
+    display: block;
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    border-bottom: 2px solid $color-white;
+    border-right: 2px solid $color-white;
+}
+.btn-border-white:hover::before {
+    display: block;
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    border-top: 2px solid $color-white;
+    border-left: 2px solid $color-white;
+}
+
+@media (min-width: 1200px) {
+
+    .btn-mobile-border::after {
+        display: block;
+        content: "";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 30px;
+        right: 10px;
+        border-bottom: 2px solid #fff;
+        border-right: 2px solid #fff;
+    }
+    .btn-mobile-border::before {
+        display: block;
+        content: "";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        bottom: 30px;
+        left: 10px;
+        border-top: 2px solid #fff;
+        border-left: 2px solid #fff;
+    }
+}
+
+.container {
+
+    display: flex;
+    justify-content: center;
+   
+    align-items: center;
+}
+.container-fluid {
+  
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+
+ .section-title {
+
+    display: flex;
+    justify-content: center;
+    margin-top:-30px;
+    
+    h1 {
+        margin-top: 64px;
+       font-family: 'Poppins', sans-serif;;
+        font-size: $font-size-16;
+        font-weight: $font-weight-extra-bold;
+        margin-bottom: 30px;
+        
+        
+    }
+    
+}
+@media (min-width: 1600px) {
+    .section-title {
+        margin-top: 20px;
+    }
+}
+
+
+

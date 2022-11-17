@@ -1,0 +1,205 @@
+@import '../core/variables';
+
+.specialty-items {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4 1fr;
+    column-gap: 2rem;
+    row-gap: 3rem;
+   align-self: center;
+    align-items: center;
+    width: 600px;
+    place-items: center;
+    height: auto;
+    padding-bottom: 3rem;
+   
+    background-color:$color-gray-0;
+
+    > .specialty-header {
+        grid-row: 1 / 1;
+        grid-column: 1 / -1;
+        align-items: center;
+        width: 100%;
+
+        .section-title {
+            background-color:$color-gray-0;
+            margin-bottom: -10px;
+         
+           display: flex;
+           justify-content: center;
+           align-items: flex-end;
+
+                h1 {
+                    display: flex;
+                    margin-top: 20px;
+                    margin-bottom: -10px;
+                
+                
+                    align-self: center;
+                
+                }
+        }
+      
+        
+    }
+}
+
+
+.specialty-items > .__item-1, .__item-2, .__item-3 {
+   
+    display: flex;
+    flex-direction: row;
+
+    
+    justify-content: center;
+    width:380px;
+ 
+    
+    .text {
+        background-color: white;
+    
+        width: 100%;
+        padding: 4rem 0 4rem 0.5rem;
+        font-size: 1.25rem;
+         color: $color-dark;
+
+         h4 {
+            font-size: 1.25rem;
+            color:$color-dark;
+            font-weight: 600;
+            
+        }
+        a {
+            font-size: 1rem;
+            color: $color-dark;
+            font-weight: 600;
+            text-decoration: underline;
+           
+          
+        }
+        a:hover {
+            font-size: 1rem;
+            color: $color-gray-5;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        
+      
+    }
+    .specialty-items > .__item-1 {
+        grid-row: 2 / 2;
+    }
+    .specialty-items > .__item-2 {
+        grid-row: 3 / 3;
+    }
+    .specialty-items > .__item-3 {
+        grid-row: 4/ 4;
+    }
+
+    .image-holder {
+   
+      background-color: $color-gray-4;
+    }
+    .image-holder img {
+        width: 200px;
+        background-color: $color-gray-4;
+      }
+}
+
+@media (min-width: 1200px) {
+
+    .specialty-items {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 2 1fr;
+    
+        column-gap: 3rem;
+        row-gap: 5rem;
+       align-self: flex-start;
+        align-items: center;
+        width: 1680px;
+        height: auto;
+      padding: 5rem;
+        background-color:$color-gray-0;
+    }
+    .specialty-items > .specialty-header {
+        grid-row: 1 / 1;
+        grid-column: 1 / -1;
+        align-items: center;
+        width: 100%;
+       
+      margin-top: -50px; 
+
+        
+        
+    }
+    .specialty-items > .specialty-header .section-title h1{
+        display: flex;
+      padding-bottom: 0.5rem; 
+   
+       
+   
+      
+    }
+    .specialty-items > .__item-3 .text  {
+      
+      
+       
+        padding: 4.2rem 0 4rem 4rem;
+    }
+    .specialty-items > .__item-1, .__item-2, .__item-3 {
+       
+        display: flex;
+        margin-top: -50px;
+        justify-content: space-between;
+        width:490px;
+     
+        
+        .text {
+            background-color: white;
+            width: 100%;
+            padding: 5.25rem 0 4rem 4rem;
+            font-size: 1.25rem;
+             color: $color-dark;
+          
+    
+             h4 {
+                font-size: 1.25rem;
+                color:$color-dark;
+                font-weight: 600;
+            }
+            a {
+                font-size: 1rem;
+                color: $color-dark;
+                font-weight: 600;
+                text-decoration: underline;
+               
+              
+            }
+            a:hover {
+                font-size: 1rem;
+                color: $color-gray-5;
+                font-weight: 600;
+                text-decoration: underline;
+            }
+            
+          
+        }
+        .specialty-items > .__item-1 {
+            grid-row: 2 / 2;
+        }
+        .specialty-items > .__item-2 {
+            grid-row: 3 / 3;
+        }
+        .specialty-items > .__item-3 .text  {
+            grid-row: 4/ 4;
+            margin-bottom: 2rem;
+    
+        }
+    
+        .image-holder {
+         
+            justify-content: flex-end;
+        }
+    }
+}

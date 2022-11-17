@@ -1,0 +1,73 @@
+.sale-banner {
+    display: inline-block;
+    
+  margin-top: auto;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+
+
+  
+    h1 strong {
+        display: block;
+            font-size:1.5rem;
+            font-weight:$font-weight-extra-bold;
+           font-family: 'Poppins', sans-serif;;
+            text-align: center;
+        
+          white-space: "pre-line";
+           
+    
+            
+            
+        }
+        p {
+            padding-top: -5rem;
+            display:block;
+            font-size: 0.4rem;
+            font-family: $font-poppins;
+            text-align: center;
+            display: none;
+        
+        }
+}
+.top-banner-btn {
+  display: flex;
+  width: 100%;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+@media (min-width: 1200px) {
+
+  .sale-banner h1 strong {
+    display: inline-flex;
+        font-size: 65px;
+        font-weight: 800;
+        text-align: center;
+      padding-bottom: 10px;
+       
+
+        
+        
+    }
+    .sale-banner p {
+        display: block;
+        font-size: 1rem;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    
+    .top-banner-btn {
+      display: flex;
+      width: 100%;
+  
+      align-items: center;
+      justify-content: center;
+    }
+    
+}
+
+   

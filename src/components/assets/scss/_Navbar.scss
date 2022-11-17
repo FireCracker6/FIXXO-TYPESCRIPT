@@ -1,0 +1,45 @@
+
+
+    body {
+    background-color: rgb(170, 205, 203);
+}
+.__navbar {
+    height: 49px;
+
+  background-color: transparent;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   display: flex;
+    align-items: center;
+    z-index: 99  !important;
+ 
+
+    .container {
+        max-width: 1680px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+
+
+   
+}
+
+.__navbarmain {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .__navbar {
+        height: 100px;
+    }
+    .__navbarmain {
+        display: block;
+    }
+
+     .mobileDropDown {
+        display: none;
+    } 
+}

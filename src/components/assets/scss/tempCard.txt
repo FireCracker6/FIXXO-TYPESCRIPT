@@ -1,0 +1,312 @@
+.product-gallery-grid {
+  
+    display: grid;
+   
+    grid-template-columns: 1fr ;
+    max-width: 1115px;
+    column-gap: 1.875rem;
+    row-gap: 1.4375rem;
+ }
+ @media (min-width: 1200px) {
+    .product-gallery-grid {
+  
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+       
+  
+     
+     }
+     .card {
+        border: none !important;
+    }
+}
+ .product-grid {
+    width: 100%;
+    display: block;
+  
+}
+
+    
+.product-grid {
+               
+   /*  position: relative; */
+    height: 330px;
+   
+   
+    overflow: hidden;
+}
+ .card {
+    border: none !important;
+   
+}
+
+.card-menu {
+    position: absolute;
+ 
+    width: 50px;
+    z-index: 1;
+    margin-top: 0rem;
+    bottom: -40%;
+
+    right: 1rem;
+    list-style: none;
+    /* center aligining the menu tested in edge, opera, safari */
+    padding: .85rem;
+    font-size: 1.25rem;
+    border-radius: $border-radius-medium;
+  /*   background-color: $color-white); */
+    transition: top 0.2s ease-in-out;
+
+}
+.card-menu .productButton {
+    background-color: $color-white;
+    display: flex;
+    color: black;
+    height: 39px;
+    width: 39px;
+    border: none !important;
+    border-radius: 50%;
+    display: inline-block;
+    justify-items: center;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2) ;
+    align-items: center;
+   text-align: center;
+   position: relative;
+    line-height: 3em;
+   margin-right: 5px;
+   margin-left: 5px;
+}
+
+.card-menu .productButton .productIcon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card:hover .card-menu  {
+    display: block;
+    top: 0;
+}
+
+
+.card-body {
+    text-align: center;
+}
+.card-body h5 {
+    font-family: $font-poppins;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: $color-font-featured-category;
+}
+.card-body h4 {
+    font-family:  $font-poppins;
+    font-size: 0.925rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color:  $color-font-featured-category;
+}
+.card-body .text-theme {
+    color: $color-red-0;
+}
+.card-body .price {
+    margin-top: 0.3rem;
+    display: flex;
+    justify-content: center;
+
+}
+.card-body .price .old-price {
+    font-size: 1.125rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-decoration: line-through;
+    padding-right: 0.5rem;
+    display: none;
+}
+.card-body .price .new-price {
+    font-size: 1.125rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+.quickview-buttons {
+    position: absolute;
+    top:-20%;
+}
+.card:hover .quickview-buttons {
+    position: absolute;
+    top:41%;
+}
+
+.quickview-button {
+ 
+
+    display: block;
+     height: 50px;
+     width: 255px;
+     background: $color-red-0;
+     position: relative;
+    
+    
+     text-align: center;
+     align-self: center;
+     
+    margin-top: 15px;;
+    
+     padding: 3px;
+     color: #fff;
+     text-align: center;
+     font-family: $font-poppins;
+     font-size: 0.875rem;
+     letter-spacing: 3.2px;
+     font-weight: 400;
+     padding-top: 15px;
+   
+     z-index: 2;
+     }
+    a.quickview-button {
+     text-decoration: none;
+     font-stretch: 300%;
+    }
+    a.quickview-button:hover {
+        background-color: $color-dark;
+        color:$color-red-0;
+    }
+
+    .quick-btn-border::after {
+        display: block;
+        content: "";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 20px;
+        right: 10px;
+        border-bottom: 2px solid #fff;
+        border-right: 2px solid #fff;
+    }
+    .quick-btn-border::before {
+        display: block;
+        content: "";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        bottom: 20px;
+        left: 10px;
+        border-top: 2px solid #fff;
+        border-left: 2px solid #fff;
+    }
+    .card {
+        display: flex;
+    }
+    .card-menu .productbutton li a {
+        background-color: $color-white;
+       margin-bottom: 0.5rem;
+    
+   
+        height: 39px;
+        width: 39px;
+        background-color: $color-white;
+        border-radius: 50%;
+        display:inline-block;
+        align-items: center;
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.06) ;
+        align-items: center;
+      line-height: 2.185rem;
+      text-align: center;
+       position: relative;
+       font-size: 1.1rem;
+       color: $color-dark;
+    }
+
+    
+    .card-menu button:hover {
+        font-weight:600;
+        color:$color-white;
+        text-decoration: none;
+        background-color: $color-dark;
+    }
+    .card-menu .productButton >  i  {
+        
+        font-size: 1.2rem;
+        font-weight: $font-weight-regular;
+        text-align: center;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+     
+        top:0;
+        left:0;
+        display: flex;
+        justify-content: center;
+        align-self: center; 
+   
+    }
+    .card-menu button i {
+      margin-bottom: 30rem;
+    }
+   
+ 
+
+    .card .card-background {
+        position: absolute;
+        bottom: 0;
+        height: 0;
+        top:0;
+        width: 100%;
+     /*    background-color: $color-theme-dark); */
+        opacity: 0.90;
+        transition: height 0.3s ease-in-out;
+    }
+    .card .featured-image {
+        height: 200px;
+       
+    }
+    .card .featured-image img {
+        filter: brightness(80%);
+        
+    }
+
+    @media (min-width: 1200px) {
+         .card .featured-image {
+        height: 200px;
+       
+    }
+    .card .featured-image img {
+        filter: brightness(80%);
+        
+    }
+    }
+    .card-background .featured-image-dark {
+        height: 200px;
+        display: none;
+        transition: 0.5s ease-in-out;
+    }
+    .card:hover  .featured-image-dark {
+        height: 200px;
+        display: block;
+        transition: 2s ease-in-out;
+      /*   filter: saturate(150%); */
+        filter: brightness(120%);
+        filter: grayscale(80%);
+    }
+    .card:hover .card-background {
+        position: absolute;
+        bottom: 0;
+        height: 200px;
+        top:0;
+        width: 100%;
+       /*  background-color: $color-theme-dark); */
+      
+        opacity: 0.90;
+        transition: height 0.02s ease-in-out;
+    }
+.featured .container  {
+
+    display: flex;
+
+    justify-content: center;
+    width:100%;
+
+
+
+}

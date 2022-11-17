@@ -1,0 +1,183 @@
+/* forms section */
+.form-comments > .container {
+    max-width: 1110px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    .header {
+    margin-top: 60px;
+    display: block;
+  
+    width: 100%;
+    
+ }
+  
+ }
+
+ .forms-input > .container .header h2 {
+    margin-top: 60px;
+    font-size: 1.5rem;
+    font-weight: $font-weight-extra-bold;
+    margin-bottom: 2rem;
+
+   
+ 
+   }
+
+   .greetings {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      background-color: #dfece7;
+      height: 100px;
+      width: 100%;
+      padding: 20px;
+      border-radius: 2%;
+      padding-bottom: 200px ;
+      border: 1px solid #b7c6c1;
+      p {
+         text-align: center;
+         font-weight: 600;
+        
+      }
+    }
+ .forms-input > .container {
+
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+
+ 
+ }
+ .forms-input > .container form {
+    display: grid;
+
+    grid-template-areas: 'formHeader formHeader'
+    'myArea mail'
+    ' myArea mail'
+    ' comments comments';
+
+   
+ 
+   row-gap: 1.5rem;
+column-gap: 1.5rem;
+
+    margin-bottom: 60px;
+    width: 100%;
+  
+
+  
+
+ }
+ .forms-input > .container form  .error {
+   color: $color-red-0;
+   border: 1px solid $color-red-0;
+   
+}
+.forms-input form .errorMessage {
+   margin-top: 5px;
+   color: $color-red-0;
+   font-size: 0.8em;
+}
+
+ @media (max-width: 844px) {
+    .forms-input > .container form {
+        display: grid;
+         grid-template-areas: 'formHeader'
+                        'myArea '
+                        ' mail'
+                        ' comments';
+     
+       row-gap: 1.5rem;
+    
+    
+        margin-bottom: 60px;
+        width: 100%;
+
+        .post-button {
+         width: 100%;
+        }
+      
+    
+     }
+
+     .forms-input > .container form .item-1 input {
+        padding: 0.8rem;
+       
+        width: 100%;
+
+     }
+ }
+ .forms-input > .container form .item-1 input {
+    padding: 0.8rem;
+
+    width: 100%;
+ 
+ }
+ .forms-input > .container  .header {
+    grid-area: formHeader;
+  
+ }
+ .forms-input > .container  .item-1 {
+    grid-area: myArea;
+
+  
+ }
+ .forms-input > .container  .item-2 {
+    grid-area: mail;
+  
+ }
+ .form-label {
+    font-weight: 700;
+ }
+ .forms-input > .container form .item-2 input {
+    padding: 0.8rem;
+   
+    width: 100%;
+ }
+ .forms-input > .container form .item-3 {
+    grid-area: comments;
+ }
+ .forms-input > .container form .item-3 textarea {
+    padding: 0.5rem;
+    width: 100%;
+    resize: none;
+ }
+ .forms-input input, .forms-input textarea {
+   outline: none;
+box-shadow: none;
+border: 1px solid $color-gray-3;
+ }
+
+
+    .post-button  {
+ 
+
+        display: block;
+         height: 46px;
+         width: 210px;
+         background: $color-red-0;
+         position: relative;
+        border: none;
+    
+         text-align: center;
+         align-self: center;
+         
+         padding: 3px;
+         color: $color-white;
+         text-align: center;
+   
+         font-size: 1rem;
+         font-weight: 600;
+         padding-top: 0.3rem;
+
+         &:active {
+            background-color: $color-dark;
+         }
+         }
+         

@@ -1,0 +1,272 @@
+@import '../core/variables';
+
+/* Pamela Reifs picks banner */
+
+
+.pamela-banner {
+    margin-top: 20px;
+    display: block;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 60px;
+
+
+}
+.pamela-flash {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  
+    align-items: center;
+
+    > .item-1 {
+        display: block;
+        width: 100%;
+        height: 403px;
+        display: flex;
+        justify-content: flex-end; 
+        background-color: #75695C;
+        background-image: url(/src/components/assets/images/Pamela-bg.png);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+       
+        padding-top: 6rem;
+        margin-bottom: 2rem;
+    
+    }
+    .pamela-text {
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        margin-top: 3rem;
+   
+            h2 {
+                text-align: end;
+                padding-right: 3rem;
+            }
+            h2 strong {
+
+                font-family: $font-poppins;
+                font-weight: $font-weight-extra-bold;
+                color: $color-white;
+                font-size: 40px;
+            }
+            .buttons {
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                display: inline-flex;
+                width: 100%;
+                padding-top: 3rem;
+
+                .black-button {
+                width: 60%;
+                }
+            
+            }
+    }
+
+}
+ 
+
+.pamela-flash > .item-2 {
+    display: flex;
+    background-image: url(/src/components/assets/images/Conscious-bg.png);
+    background-color: #D9D9D9;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width:100%;
+   
+    justify-content: center;
+    padding-top:6rem;
+   
+   
+
+    .prod-text {
+        width: 100%;
+      
+        h2 {
+              margin-left: 3rem;
+              padding-bottom: 2.5rem;
+        }
+        h2 strong {
+            font-family: $font-poppins;
+            font-weight: $font-weight-extra-bold;
+            font-size: 40px;
+            
+    }
+    .buttons  {
+   
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        display: inline-flex;
+        width: 100%;
+     
+    
+        .white-button {
+   
+            width:  60%;
+            margin-bottom: 3rem;
+          
+          }
+    
+    }
+  
+} 
+}
+
+
+
+
+@media (min-width: 1200px) {
+
+    
+.pamela-banner {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 60px;
+  
+
+
+}
+.pamela-flash {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  
+    align-items: flex-start;
+
+    > .item-1 {
+        display: block;
+        width: 820px;
+        height: 403px;
+        display: flex;
+        justify-content: flex-end; 
+        background-color: #75695C;
+        background-image: url(/src/components/assets/images/Pamela-bg.png);
+        background-size: contain;
+        background-position-x: 61px;
+        background-repeat: no-repeat;
+        position: relative;
+      
+        margin-right: 15px;
+    
+    }
+        .pamela-text {
+            display: inline-block;
+            width: 100%;
+            margin-right: 5rem;
+            text-align: end;
+            position: absolute;
+            bottom: 3rem;
+    
+                    h2 {
+                        padding: 0;
+                        margin: 0;
+                    }
+                    h2 strong {
+
+                        font-family: $font-poppins;
+                        font-weight: $font-weight-extra-bold;
+                        color: $color-white;
+                        font-size: 40px;
+                    
+                    }
+                    .buttons {
+                        justify-content:flex-end;
+                        width: 100%;
+                    
+                        .black-button {
+                            width: 188px;
+                        }
+                    }
+        
+        }
+
+}
+ 
+.pamela-flash > .item-2 {
+    display: block;
+    background-image: url(/src/components/assets/images/Conscious-bg.png);
+    background-color: #D9D9D9;
+    background-size: contain;
+    background-position-x: 386px;
+    background-repeat: no-repeat;
+    width: 825px;
+    height: 403px;
+    justify-content: center;
+    padding-top:6rem;
+    margin-left: 15px;
+    position: relative;
+
+        .prod-text {
+            position: absolute;
+            display: inline-block;
+            width: 100%;
+            margin-right: 2.5rem;
+            text-align: start;
+            bottom: 3rem;
+            margin-left: 5rem;
+    
+            h2 {
+                margin-left: 0rem;
+                }
+           
+                h2 strong {
+                    font-family: $font-poppins;
+                    font-weight: $font-weight-extra-bold;
+                    font-size: 40px;
+                
+            
+                
+        
+                    }
+                    .buttons {
+                        justify-content:flex-start;
+                        width: 100%;
+                        padding-bottom: 0rem;
+                      
+                        .white-button {
+                            
+                            width: 188px;
+                            margin-bottom: 0rem;
+                        }
+                    }
+                }      
+
+    }
+}
+@media (min-width: 768px ) {
+    
+    .pamela-flash > .item-2 .prod-text .buttons {
+        justify-content:flex-center;
+        width: 100%;
+        padding-bottom: 0rem;
+      
+        .white-button {
+            
+            width: 30%;
+            margin-bottom: 3rem;
+        }
+    }
+
+    .pamela-flash > .item-1 .pamela-text .buttons {
+        justify-content:flex-center;
+        width: 100%;
+        padding-bottom: 0rem;
+      
+        .black-button {
+            
+            width: 30%;
+            margin-bottom: 3rem;
+        }
+    }
+}

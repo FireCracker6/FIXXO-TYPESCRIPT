@@ -1,0 +1,277 @@
+
+.disc-card  {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    justify-content: center;
+
+  
+}
+.disc-card .grid-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100px 1fr 1fr 1fr;
+
+    .item-3 {
+        display: none;
+    }
+    h4 {
+        font-size: 1rem;
+        font-weight: 800;
+        padding-bottom: 10px;
+    }
+
+}
+
+.disc-card .card {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    max-width:180px;
+    border: none !important;
+    margin-left: auto;
+    margin-right: auto;
+
+    img  {
+        
+        width: 160px;
+        height:132px;
+        object-fit: cover;
+    }
+
+    .card-body {
+        width: 100%;
+        margin-left: 0;
+        margin-top: -0.5rem;
+        text-align: center;
+
+        h4 {
+            font-size: 0.925rem;
+            font-weight: 800;
+            margin-bottom: -12px;
+        
+        }
+        h5 {
+            font-size: 0.725rem;
+        
+        }
+        .text-theme {
+            color: $color-red-0;
+         
+        }
+
+        .price {
+  
+            font-size: 1.125rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: flex;
+            justify-content: center;
+           
+        }
+    }
+
+    .card-menu {
+        position: absolute;
+  
+        width: 70px;
+        z-index: 1;
+        margin-top: 0rem;
+        overflow: hidden;
+    left:105px; 
+        top:-4px;
+        right: 1rem;
+        list-style: none;
+        align-items: center;
+        padding: .85rem;
+        font-size: 1.25rem;
+      
+     
+        transition: top 0.2s ease-in-out;
+   
+       
+    }
+
+}
+
+
+.disc-card .card:hover .card-menu  {
+    display: block;
+  left:105px;  
+    top:-4px;
+
+  
+} 
+.disc-card .card-menu  .productButton  {
+  position: relative;
+    background-color: $color-white;
+   
+    color: black;
+    height: 32px;
+    width: 32px;
+    display: inline-block;
+    border-radius: 50%;
+   
+    
+    margin-left: auto;
+        margin-right: auto;
+    vertical-align: middle;
+font-size: 1rem;
+    text-align: center;
+    border:none!important;
+    outline: none !important;
+    margin-bottom: 5px;
+    box-shadow: 0px 0px 3px 4px rgba(0, 0, 0, 0.06) ;
+    
+  
+}
+.disc-card .card:hover .card-menu button:hover {
+    background-color: black;
+    color: white;
+}
+
+
+
+@media (min-width:768px) {
+    .disc-card .grid-wrapper {
+        .item-3 {
+            display: none;
+        }
+        h4 {
+            font-size: 1.25rem;
+            padding-bottom: 20px;
+        }
+
+    } 
+    .disc-card .card .card-menu {
+        left: 90px;
+    }
+
+    .disc-card .card {
+     
+
+        max-width: 400px;
+        border: none!important;
+        margin-left: auto;
+        margin-right: auto;
+    
+        img  {
+            width: 130px;
+            height:132px;
+            object-fit: cover;
+        }
+    
+        .card-body {
+            width: 350px;
+            margin-left: 30px;
+            margin-top: -0.8rem;
+            text-align: left;
+    
+            h4 {
+                font-size: 0.925rem;
+                font-weight: 800;
+            
+            }
+            h5 {
+                font-size: 0.725rem;
+            
+            }
+            .text-theme {
+                color: $color-red-0;
+             
+            }
+    
+            .price {
+      
+                font-size: 1.125rem;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                display: flex;
+                justify-content: flex-start;
+               
+            }
+        }
+    
+        .card-menu {
+            position: absolute;
+         
+            width: 50px;
+            z-index: 1;
+            margin-top: 0rem;
+            overflow: hidden;
+             left: 75px;
+            right: 1rem;
+            list-style: none;
+         
+            padding: .85rem;
+            font-size: 1.25rem;
+            border-radius: $border-radius-medium;
+         
+            transition: top 0.2s ease-in-out;
+        
+        }
+    
+    }
+    .disc-card .card:hover .card-menu  {
+        display: block;
+     left:75px; 
+ 
+    } 
+    .disc-card .card:hover .card-menu button:hover {
+        background-color: black;
+        color: white;
+    }
+  
+
+   
+    }
+
+    @media (min-width:1200px) {
+        .disc-card .grid-wrapper {
+            width: 100%;
+            
+            .item-3 {
+                display: grid;
+            }
+        }
+
+        
+        .disc-card .card {
+     
+
+           width: 1000px;
+            border: none !important;
+            margin-left: auto;
+            margin-right: auto;
+        
+            img  {
+                width: 160px;
+                height:132px;
+                object-fit: cover;
+            }
+            .card-body {
+              
+              
+                border: none !important;
+            }
+           
+          
+          
+        
+            
+    }
+    .disc-card .card .card-menu  {
+        display: block;
+        left:-9000%; 
+ 
+    } 
+    .disc-card .card:hover .card-menu  {
+        display: block;
+     left:105px; 
+ 
+    } 
+    .disc-card .card:hover .card-menu button:hover {
+        background-color: black;
+        color: white;
+    }
+    
+}
