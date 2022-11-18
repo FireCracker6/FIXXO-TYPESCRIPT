@@ -3,10 +3,12 @@ import React from 'react'
 
 
 
-/* import ContactFormsSection from './ContactFormsSection' */
+import ContactFormsSection from './ContactFormsSection' 
 import './MapSection'
 import MapSection2 from './MapSection'
 import BreadCrumbSections from './BreadCrumbsSections'
+import Registration from '../Registration'
+import { SignUp } from '../ContactForm'
 
 
 function Contacts() {
@@ -18,7 +20,10 @@ function Contacts() {
 <MapSection2 />
     
 {/*  Form section  */}
-{/* <ContactFormsSection /> */}
+{/*  <ContactFormsSection /> */}
+<SignUp />
+
+{/* <Registration /> */}
     
     </>
   )
