@@ -14,19 +14,10 @@ import NavbarGlobal from '../components/NavbarGlobal';
 import ProductGridSection from '../components/sections/ProductGridSection';
 import DiscountCard2 from '../components/sections/DiscountCardSection';
 import { useEffect } from 'react';
-import { ProductContextInterface, useProductContext } from '../components/contexts/ProductContext';
-import {ProductContext, ProductProvider } from '../components/contexts/ProductContext';
-import ShoppingCartContext, { ShoppingCartProvider } from '../components/contexts/ShoppingCartContext';
+import { ProductContextInterface } from '../components/contexts/ProductContext';
+import {ProductContext } from '../components/contexts/ProductContext';
 import PamelaReif  from '../components/PamelaReif';
 import DiscountBanner from '../components/DiscountBanner';
-
-
-
-
-
-
-
-
 
 const HomeView = () => {
   const {featuredProducts, getFeaturedProducts}  = React.useContext(ProductContext) as ProductContextInterface
@@ -36,49 +27,21 @@ const HomeView = () => {
     getFeaturedProducts(4)
     getDiscountProducts(3)
   
-  }, [])
-document.title = "Fixxo." 
+  }, [getFeaturedProducts, getDiscountProducts])
 
+document.title = "Welcome To Fixxo." 
 
-
-
- /*  const {discountProducts, getDiscountProducts} =  useProductContext() as ProductContextInterface */
-
- 
-  useEffect(() => {
-  
-    /* getDiscountProducts(3) */
-  }, [])
-
-
- 
   return (
     <>
-
-
-    {/*     <NavbarGlobal />
+        <NavbarGlobal />
         <Showcase />
         <ProductsBanner />
-        <ProductGridSection title="Featured Products" items={featuredProducts} /> 
+        <ProductGridSection title="Featured Products" items={featuredProducts}/> 
         <PamelaReif />
-        <Specialty title={"Our Specialty"} />
+        <Specialty title="Our Specialty"/>
         <SpecialOffer1  items={featuredProducts} />
         <SpecialOffer2  items={featuredProducts}  />  
         <DiscountBanner title={"Up to 70% off*"} />
-        <DiscountCard2 items={discountProducts}/>
-        <HomeFooter />
-        <Footer />
- */}
-  
-   <NavbarGlobal />
-   <Showcase />
-   <ProductsBanner />
-   <ProductGridSection title="Featured Products" items={featuredProducts}/> 
-   <PamelaReif />
-  
-   <SpecialOffer1  items={featuredProducts} />
-   <SpecialOffer2  items={featuredProducts}  />  
-   <DiscountBanner title={"Up to 70% off*"} />
         <DiscountCard2 items={discountProducts}/>
         <HomeFooter />
         <Footer />

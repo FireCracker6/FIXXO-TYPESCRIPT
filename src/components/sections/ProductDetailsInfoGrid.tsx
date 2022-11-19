@@ -29,16 +29,16 @@ export const ProductDetailsInfoGrid: React.FC<IProductTilesProps> = ({ items = [
  
 
     const {product, getProduct} = useProductContext() as ProductContextInterface
-  const {featuredProducts}  = useProductContext() as ProductContextInterface
+
     useEffect(() => {
         getProduct(idNumber)
       
-    },[])
+    },[  getProduct, idNumber])
 
 
 
     
-   let currentPage = "Product Details"
+
      document.title = `${product.name} || Fixxo`
 
 

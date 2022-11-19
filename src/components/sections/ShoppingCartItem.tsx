@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { ShoppingCartContextInterface, useShoppingCart } from '../contexts/ShoppingCartContext'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 

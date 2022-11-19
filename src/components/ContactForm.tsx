@@ -25,11 +25,11 @@ export const submitData = async (url: string, method: string, data: string, cont
 
 const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i);
 
-interface SignUpProps {
+interface ContactFormProps {
     name?: any;
     value?: any;
  }
- interface SignUpState {
+ interface ContactFormState {
     name : string,
     email : string,
     comments : string,
@@ -47,9 +47,9 @@ interface SignUpProps {
   
  }
 
- export class SignUp extends React.Component<SignUpProps, SignUpState>
+ export class ContactForm extends React.Component<ContactFormProps, ContactFormState>
  {
-   constructor(props: SignUpProps) {
+   constructor(props: ContactFormProps) {
       super(props);
       const initialState = {
          name : '',
@@ -73,55 +73,55 @@ interface SignUpProps {
        this.handleUserInput = this.handleUserInput.bind(this);
      
        
- }
- handleUserInput = (e: any) => {
+      }
+      handleUserInput = (e: any) => {
 
-   
-   e.preventDefault();
-   const name = e.target.name;
-   const value = e.target.value;
-   this.setState(Object.assign({[name]: value}),
-                 () => { this.validateField(name, value) });
- }
- validateField(fieldName: any, value: any) {
+         
+         e.preventDefault();
+         const name = e.target.name;
+         const value = e.target.value;
+         this.setState(Object.assign({[name]: value}),
+                     () => { this.validateField(name, value) });
+      }
+      validateField(fieldName: any, value: any) {
 
-   
-   let fieldValidationErrors = this.state.errors
-   let nameValid = this.state.nameValid
-   let emailValid = this.state.emailValid
-   let commentsValid = this.state.commentsValid
+         
+         let fieldValidationErrors = this.state.errors
+         let nameValid = this.state.nameValid
+         let emailValid = this.state.emailValid
+         let commentsValid = this.state.commentsValid
 
-   switch(fieldName) {
-      case 'name':
-         nameValid = value.length > 3
-         fieldValidationErrors.name = value.length < 3  ? 'Must be a valid name!': '';
-         break
-      case 'email':
-         emailValid = Regex.test(value)
-         fieldValidationErrors.email = Regex.test(value)? '': 'Email is invalid!';
-      break
-      case 'comments':
-         commentsValid = value.length > 8
-         fieldValidationErrors.comments =  value.length < 8  ? "Your comment must be more than 8 characters long!": '';
-         break;
-         default:
-            break;
+         switch(fieldName) {
+            case 'name':
+               nameValid = value.length > 3
+               fieldValidationErrors.name = value.length < 3  ? 'Must be a valid name!': '';
+               break
+            case 'email':
+               emailValid = Regex.test(value)
+               fieldValidationErrors.email = Regex.test(value)? '': 'Email is invalid!';
+            break
+            case 'comments':
+               commentsValid = value.length > 8
+               fieldValidationErrors.comments =  value.length < 8  ? "Your comment must be more than 8 characters long!": '';
+               break;
+               default:
+                  break;
 
 
 
-   }
-   this.setState({errors: fieldValidationErrors,
-   nameValid: nameValid,
-   emailValid: emailValid,
-   commentsValid: commentsValid}, this.validateForm);
-   
- }
+         }
+         this.setState({errors: fieldValidationErrors,
+         nameValid: nameValid,
+         emailValid: emailValid,
+         commentsValid: commentsValid}, this.validateForm);
+         
+      }
 
- // not letting user submit form until all fields are filled in correctly.
- validateForm() {
-   this.setState({formValid: this.state.nameValid && this.state.emailValid && this.state.commentsValid})
-  /*  console.log('formValid ' + this.state.formValid) */
- }
+      // not letting user submit form until all fields are filled in correctly.
+      validateForm() {
+         this.setState({formValid: this.state.nameValid && this.state.emailValid && this.state.commentsValid})
+      /*  console.log('formValid ' + this.state.formValid) */
+      }
 
 
       handleSubmit = async (event : any) => {
@@ -142,7 +142,7 @@ interface SignUpProps {
          this.setState({isSubmitted: true})
          this.setState({failedSubmit: false})
       
-/*         console.log("Registering can be done"); */
+/*         console.log("Submitting can be done"); */
        
        
        } else{
@@ -171,7 +171,7 @@ interface SignUpProps {
             <div className="forms-input">
                 <div className="container">
               
-                   {
+                  {
                       this.state.isSubmitted ? (
                      <div className='alert alert-success text-center'  >
                          <div className='header'>
@@ -181,19 +181,19 @@ interface SignUpProps {
                               
                          </div>
                      </div> )  : (<></>)
-     }    
-     
-     {
-                      this.state.failedSubmit ? (
-                     <div className='alert alert-danger text-center'  >
-                         <div className='header'>
+                  }    
+                     
+                     {
+                        this.state.failedSubmit ? (
+                           <div className='alert alert-danger text-center'  >
+                              <div className='header'>
+                                    
+                                       <h2 >Something went wrong!</h2>
+                                       <p>We couldn't submit your comments right now.</p>
                                  
-                                     <h2 >Something went wrong!</h2>
-                                     <p>We couldn't submit your comments right now.</p>
-                                
-                         </div>
-                     </div> ) : (<></>)
-     }
+                              </div>
+                           </div> ) : (<></>)
+                     }
      
                      
         

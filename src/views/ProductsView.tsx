@@ -12,7 +12,7 @@ interface Props {
 
 export const ProductsView: React.FC<Props> = ({title }) => {
 
-/*   window.top.document.title = "Products | Fixxo." */
+document.title = "Products | Fixxo." 
   const {products, getProducts} = useProductContext() as ProductContextInterface
 
   useEffect(() => {
@@ -34,10 +34,7 @@ export const ProductsView: React.FC<Props> = ({title }) => {
            <ProductGridSection title="Products" items={products} /> 
 
            
-        
-              
-         
-   <div style={{"height": "750px"}}></div> 
+      
    <Footer />
    </div>
   )

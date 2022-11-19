@@ -1,4 +1,4 @@
-import React from 'react'
+
 import NavbarGlobal from '../components/NavbarGlobal'
 import Footer from '../components/Footer'
 

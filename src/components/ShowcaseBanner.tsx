@@ -1,4 +1,4 @@
-import React from 'react'
+
 import RedButton from './buttons/RedButton'
 
 function ShowcaseBanner() {

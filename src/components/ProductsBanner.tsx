@@ -1,4 +1,4 @@
-import React from 'react'
+
 import ProductsFlash from './ProductsFlash'
 
 function ProductsBanner() {

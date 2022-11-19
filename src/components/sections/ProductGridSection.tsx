@@ -1,10 +1,6 @@
 import React  from 'react'
 import MobileGridCard from '../cards/MobileGridCard';
 import {Products} from '../models/productsModel'
-
-
-
-
 import ProductCard from '../cards/ProductCard';
 
 interface IProductTilesProps {

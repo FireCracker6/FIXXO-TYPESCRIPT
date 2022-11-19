@@ -1,14 +1,9 @@
-import React from 'react'
-import Logo from './assets/images/logo.svg'
 import NavBarMain from './NavBarMain'
 import CustomerLinks from './CustomerLinks'
 import { NavLink } from 'react-router-dom'
 import MobileDropdown from './MobileDropdown'
 
 
-
-/* 
-import MobileDropdown from './MobileDropdown'; */
 
 function NavbarGlobal() {
   return (

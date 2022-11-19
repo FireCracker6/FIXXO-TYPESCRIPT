@@ -5,15 +5,8 @@ import Footer from '../components/Footer'
  import BreadCrumbsSections from '../components/sections/BreadCrumbsSections'
 import { ProductDetailsInfoGrid } from '../components/sections/ProductDetailsInfoGrid'
  import { ProductDetailGalleryHeader } from '../components/ProductDetailGalleryHeader' 
-import {Products} from '../components/models/productsModel'
 import { ProductContextInterface, useProductContext } from '../components/contexts/ProductContext';
 import { useEffect } from 'react'
-
-interface IProductTilesProps {
-  
-  items: Products[]
-  
-}
 
 
 
@@ -27,13 +20,13 @@ interface IProductTilesProps {
 const  ProductDetailsView: React.FC= () =>  {
 
 
-  const product =   useProductContext() as ProductContextInterface
+ 
   const {featuredProducts, getFeaturedProducts} = useProductContext() as ProductContextInterface
   
   useEffect(() => {
     getFeaturedProducts(4)
     
-  }, [])
+  }, [getFeaturedProducts])
 
 
 
