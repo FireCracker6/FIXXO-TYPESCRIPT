@@ -116,9 +116,11 @@ interface SignUpProps {
    commentsValid: commentsValid}, this.validateForm);
    
  }
+
+ // not letting user submit form until all fields are filled in correctly.
  validateForm() {
    this.setState({formValid: this.state.nameValid && this.state.emailValid && this.state.commentsValid})
-   console.log('formValid ' + this.state.formValid)
+  /*  console.log('formValid ' + this.state.formValid) */
  }
 
 
@@ -129,7 +131,7 @@ interface SignUpProps {
         Object.values(this.state.errors).forEach(
           (val) => val.length > 0 && (validity = false)
         );
-        if(validity === true && this.state.name !== '' && this.state.email !== '' && this.state.comments !== ''){
+        if(validity === true && this.state.formValid && this.state.name !== '' && this.state.email !== '' && this.state.comments !== ''){
        
          let userObjects = ({'Name': this.state.name, 'Email': this.state.email, 'Comments':  this.state.comments})
          let json = JSON.stringify(userObjects)
@@ -140,16 +142,12 @@ interface SignUpProps {
          this.setState({isSubmitted: true})
          this.setState({failedSubmit: false})
       
-      
- 
-       
-      
- 
-        console.log("Registering can be done");
+/*         console.log("Registering can be done"); */
        
        
        } else{
-           console.log("You cannot be registered!!!")
+           console.log("We cannot submit your comments right now!")
+           this.setState({name: '', email: '', comments: ''})
            this.setState({isSubmitted: false})
            this.setState({failedSubmit: true})
           
@@ -223,7 +221,7 @@ interface SignUpProps {
                            <textarea name="comments" className={ (errors.comments) ?  'error': '' }   placeholder="Comments"  value={this.state.comments}   onChange={this.handleUserInput}   id="comments" rows={8}></textarea>
                            {errors.comments.length > 0 &&  <span style={{color: "red"}}>{errors.comments}</span>}
                  
-                           <div className="cart-red-buttons mt-4"> <button type="submit" className=" post-button" disabled={!this.state.formValid} >Post Comments</button>
+                           <div className="mt-4"> <button type="submit" className=" post-button" disabled={!this.state.formValid} >Post Comments</button>
                          </div> 
                         
                      </div>

@@ -3838,6 +3838,9 @@ a.quickview-button:hover {
 .post-button:active {
   background-color: #080C24;
 }
+.post-button:disabled {
+  background-color: #7E7F80;
+}
 
 .wrapper {
   height: 97vh;
