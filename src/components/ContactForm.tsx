@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export const submitData = async (url: string, method: string, data: string, contentType = 'application/json') => {
 
    const res = await fetch(url, {
@@ -34,6 +35,10 @@ interface SignUpProps {
     comments : string,
     isSubmitted: boolean,
     failedSubmit: boolean,
+    nameValid: boolean,
+    emailValid: boolean,
+    commentsValid: boolean,
+    formValid: boolean,
     errors : {
        name :  string,
        email : string,
@@ -52,6 +57,11 @@ interface SignUpProps {
          comments : '',
          isSubmitted: false,
          failedSubmit: false,
+         nameValid: false,
+         emailValid: false,
+         commentsValid: false,
+         formValid: false,
+
          errors : {
            name : '',
            email : '',
@@ -60,133 +70,177 @@ interface SignUpProps {
          } 
        }
        this.state = initialState;
-       this.handleChange = this.handleChange.bind(this);
+       this.handleUserInput = this.handleUserInput.bind(this);
      
        
  }
+ handleUserInput = (e: any) => {
 
-    handleChange = (event : any) => {
-        event.preventDefault();
-        const { name, value } = event.target;
-        let errors = this.state.errors;
-  switch (name) {
-    case 'name':
-       errors.name = value.length < 3 ? 'Must be a valid name!': '';
-       break;
-    case 'email':
-       errors.email = Regex.test(value)? '': 'Email is not valid!';
-       break;
-    case 'comments':
-       errors.comments = value.length < 8 ? 'Password must be eight characters long!': '';
-       break;
-    default:
-      break;
-  }
-      this.setState(Object.assign(this.state, { errors,[name]: value }));
-      console.log(this.state.errors);
-      }
+   
+   e.preventDefault();
+   const name = e.target.name;
+   const value = e.target.value;
+   this.setState(Object.assign({[name]: value}),
+                 () => { this.validateField(name, value) });
+ }
+ validateField(fieldName: any, value: any) {
+
+   
+   let fieldValidationErrors = this.state.errors
+   let nameValid = this.state.nameValid
+   let emailValid = this.state.emailValid
+   let commentsValid = this.state.commentsValid
+
+   switch(fieldName) {
+      case 'name':
+         nameValid = value.length > 3
+         fieldValidationErrors.name = value.length < 3  ? 'Must be a valid name!': '';
+         break
+      case 'email':
+         emailValid = Regex.test(value)
+         fieldValidationErrors.email = Regex.test(value)? '': 'Email is invalid!';
+      break
+      case 'comments':
+         commentsValid = value.length > 8
+         fieldValidationErrors.comments =  value.length < 8  ? "Your comment must be more than 8 characters long!": '';
+         break;
+         default:
+            break;
+
+
+
+   }
+   this.setState({errors: fieldValidationErrors,
+   nameValid: nameValid,
+   emailValid: emailValid,
+   commentsValid: commentsValid}, this.validateForm);
+   
+ }
+ validateForm() {
+   this.setState({formValid: this.state.nameValid && this.state.emailValid && this.state.commentsValid})
+   console.log('formValid ' + this.state.formValid)
+ }
+
+
       handleSubmit = async (event : any) => {
-
+       
         event.preventDefault();
         let validity = true;
         Object.values(this.state.errors).forEach(
           (val) => val.length > 0 && (validity = false)
         );
-        if(validity == true){
-        if (this.state.errors.name === null && this.state.errors.email === null && this.state.errors.comments === null) { 
+        if(validity === true && this.state.name !== '' && this.state.email !== '' && this.state.comments !== ''){
+       
          let userObjects = ({'Name': this.state.name, 'Email': this.state.email, 'Comments':  this.state.comments})
          let json = JSON.stringify(userObjects)
          await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json,)
          console.log(userObjects)
-      }  
+       
+         this.setState({name: '', email: '', comments: ''})
          this.setState({isSubmitted: true})
          this.setState({failedSubmit: false})
       
       
  
+       
       
-        event.target.reset();
  
         console.log("Registering can be done");
-      
+       
        
        } else{
            console.log("You cannot be registered!!!")
            this.setState({isSubmitted: false})
            this.setState({failedSubmit: true})
-
+          
         }
+      
       }
+      
     
     render() {
         const {errors} = this.state
-
-        {
-         this.state.isSubmitted ? (
-         <div className='alert alert-success text-center'  >
-             <div className='header'>
-                    
-                         <h2 >Thank you for your comments!</h2>
-                         <p>We will get back to you as soon as possible</p>
-                  
-             </div>
-         </div> )  : (<></>)
-}    
-{
-   this.state.failedSubmit ? (
-   <div className='alert alert-danger text-center'  >
-       <div className='header'>
-               
-                   <h2 >Something went wrong!</h2>
-                   <p>We couldn't submit your comments right now.</p>
-              
-       </div>
-   </div> ) : (<></>)
-}
-   if (this.state.isSubmitted) {
-   return (
-      <>
-      <div className='alert alert-success text-center'  >
-      <div className='header'>
-             
-                  <h2 >Thank you for your comments!</h2>
-                  <p>We will get back to you as soon as possible</p>
-           
-      </div>
-  </div>
-
-  </>
   
-   )}
+    
+        return (
 
-    else {
-      return (
-         <div className="wrapper">
-         <div className="form-wrapper">
-             <h2>Come in Contact With Us</h2>
-             <form action="" onSubmit={this.handleSubmit} noValidate >
-             <div className='username'>
-               <label htmlFor="name">Full Name</label>
-               <input type='text' name='name' onChange={this.handleChange} placeholder="Your FullName"/>
-                {errors.name.length > 0 &&  <span style={{color: "red"}}>{errors.name}</span>}
-</div>
-                 <div className='email'>
-               <label htmlFor="email">Email</label>
-               <input type='email' name='email' onChange={this.handleChange} placeholder="Your Email" />
-               {errors.email.length > 0 &&  <span style={{color: "red"}}>{errors.email}</span>}
+    
+    
+         <section className="form-comments">
+             
+         
+     
+            <div className="forms-input">
+                <div className="container">
+              
+                   {
+                      this.state.isSubmitted ? (
+                     <div className='alert alert-success text-center'  >
+                         <div className='header'>
+                                
+                                     <h2 >Thank you for your comments!</h2>
+                                     <p>We will get back to you as soon as possible</p>
+                              
+                         </div>
+                     </div> )  : (<></>)
+     }    
+     
+     {
+                      this.state.failedSubmit ? (
+                     <div className='alert alert-danger text-center'  >
+                         <div className='header'>
+                                 
+                                     <h2 >Something went wrong!</h2>
+                                     <p>We couldn't submit your comments right now.</p>
+                                
+                         </div>
+                     </div> ) : (<></>)
+     }
+     
+                     
+        
+                   
+                      <form onSubmit={this.handleSubmit} noValidate >
+               
+                         <div className="header">
+                         <h2>Come in Contact with Us </h2>
+                   
+                         </div>
+                     <div className="item-1">
+                        
+                       <input  id="name" name="name" className={ (errors.name) ?  'error': '' }  type="text"   value={this.state.name}   onChange={this.handleUserInput}    placeholder="Your Name"   />                 
+                         
+                       {errors.name.length > 0 &&  <span style={{color: "red"}}>{errors.name}</span>}
+                     </div>
+                       
+                     <div className="item-2">
+                    
+                         <input id='email' name="email" className={ (errors.email) ?  'error': '' }  type='email'   value={this.state.email}   onChange={this.handleUserInput}   placeholder='Your Mail' /> 
+                         {errors.email.length > 0 &&  <span style={{color: "red"}}>{errors.email}</span>}
+     
+                     </div>
+                     <div className="item-3">
+                           <textarea name="comments" className={ (errors.comments) ?  'error': '' }   placeholder="Comments"  value={this.state.comments}   onChange={this.handleUserInput}   id="comments" rows={8}></textarea>
+                           {errors.comments.length > 0 &&  <span style={{color: "red"}}>{errors.comments}</span>}
+                 
+                           <div className="cart-red-buttons mt-4"> <button type="submit" className=" post-button" disabled={!this.state.formValid} >Post Comments</button>
+                         </div> 
+                        
+                     </div>
+                  
+            </form>
+            
+     
+                </div> 
             </div>
-            <div className='password'>
-               <label htmlFor="comments">Comments</label>
-             <textarea name="comments" id="comments" cols={30} rows={10} onChange={this.handleChange} placeholder="Your comments.."></textarea>
-
-               {errors.comments.length > 0 &&  <span style={{color: "red"}}>{errors.comments}</span>}
-            </div>   
-            <div className="submit">
-             <button  className="form-button">POST COMMENTS</button>
-            </div>
-             </form>
-         </div>
-     </div>
-      )
+     
+            
+            </section>
+     
+            
+       )
+              
     }
-}}
+   }
+
+
