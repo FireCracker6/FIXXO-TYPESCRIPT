@@ -127,11 +127,13 @@ interface ContactFormProps {
       handleSubmit = async (event : any) => {
        
         event.preventDefault();
+        
         let validity = true;
         Object.values(this.state.errors).forEach(
           (val) => val.length > 0 && (validity = false)
         );
-        if(validity === true && this.state.formValid && this.state.name !== '' && this.state.email !== '' && this.state.comments !== ''){
+
+        if (validity === true && this.state.formValid && this.state.name !== '' && this.state.email !== '' && this.state.comments !== '') {
        
          let userObjects = ({'Name': this.state.name, 'Email': this.state.email, 'Comments':  this.state.comments})
          let json = JSON.stringify(userObjects)
@@ -145,7 +147,8 @@ interface ContactFormProps {
 /*         console.log("Submitting can be done"); */
        
        
-       } else{
+       } 
+       else {
            console.log("We cannot submit your comments right now!")
            this.setState({name: '', email: '', comments: ''})
            this.setState({isSubmitted: false})
