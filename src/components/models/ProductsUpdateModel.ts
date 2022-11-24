@@ -14,5 +14,5 @@ export interface ProductRequest {
     imageURL: string
     title: string
     description: string
-    price: number
+    price: string | number
 }

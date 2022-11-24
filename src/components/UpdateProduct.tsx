@@ -14,7 +14,7 @@ const UpdateProduct= () => {
     const idNumber = id as unknown as number
   
     const { product, setProduct, get, update, remove } = React.useContext(ProductsUpdateContext) as IProductsUpdateContext
-    const { productRequest, setProductRequest, create } = React.useContext(ProductsUpdateContext) as IProductsUpdateContext
+   
 
     useEffect(() => { 
       return () => {
@@ -68,7 +68,7 @@ BACK TO PRODUCT LIST
 
         <input value={product.description} onChange={(e) =>  setProduct({...product, description: e.target.value})} type="text" className='form-control py-2 mb-3' placeholder='Enter description..' />
        
-        <input value={product.price} onChange={(e) =>  setProduct({...product, price: parseFloat(e.target.value)})}  type="number" step="any" className='form-control py-2 mb-3' placeholder='Enter a price...' />
+        <input value={product.price} onChange={(e) =>  setProduct({...product, price: parseFloat(e.target.value)})}  type="number" /* step="any" */ className='form-control py-2 mb-3' placeholder='Enter a price...' />
      
              <button type='submit' className='btn btn-warning py-2 mt-3' >UPDATE PRODUCT</button>
     <button className=' btn btn-danger  py-2 mt-3 ' onClick={(e) =>  removeProduct(product.articleNumber)} >Remove Product</button>

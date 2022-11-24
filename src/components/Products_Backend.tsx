@@ -2,7 +2,6 @@ import React from 'react'
 
 import CreateProducts from './CreateProducts'
 import ProductsList from './ProductsList'
-import UpdateProduct from './UpdateProduct'
 
 
 const Products_Backend = () => {
