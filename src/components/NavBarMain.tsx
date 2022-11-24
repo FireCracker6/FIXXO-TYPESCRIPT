@@ -11,10 +11,10 @@ function NavBarMain() {
       <NavLink to="/" end>Home</NavLink>
       </div>
     <div className='__ulinks'>
-    <NavLink to="/categories" end>Categories</NavLink> 
+    <NavLink to="/productsbackend" end>Categories</NavLink> 
       </div>
     <div className='__ulinks'>
-    <NavLink to="/products" >Products</NavLink>
+    <NavLink to="/products" end>Products</NavLink>
       </div>
     <div className='__ulinks'>
     <NavLink to="/contacts" end>Contacts</NavLink>

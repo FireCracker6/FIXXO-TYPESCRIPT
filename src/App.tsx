@@ -17,6 +17,12 @@ import { ProductsView } from './views/ProductsView';
 import { ProductDetailGalleryHeader } from './components/ProductDetailGalleryHeader';
 import { ShoppingCartProvider } from './components/contexts/ShoppingCartContext';
 import { ProductProvider } from './components/contexts/ProductContext';
+import UserProvider from './components/contexts/UserContext';
+import UserList from './components/UserList';
+import CreateForm from './components/CreateForm';
+import Products_Backend from './components/Products_Backend';
+import ProductsUpdateProvider from './components/contexts/ProductsUpdateContext';
+import UpdateProduct from './components/UpdateProduct';
 
 
 
@@ -31,12 +37,16 @@ const App = () => {
       <BrowserRouter>
         <ShoppingCartProvider>
             <ProductProvider>
+              <UserProvider>
+                <ProductsUpdateProvider>
               <Routes>
+                <Route path='/productsbackend' element={<Products_Backend />} />
+                <Route path='/updateproduct/:id' element={<UpdateProduct/>} />
                 <Route path='/' element={<HomeView/>}/>
                 <Route path='/products'   element={<ProductsView title={'Products'}   /> }/>
                 <Route path='/productdetails/:id'  element={<ProductDetailsView  />}/>
                 <Route path='/productdetails/:id' element={<ProductDetailGalleryHeader title={'Related Products'} items={[]} />}/>
-                <Route path='/categories' element={<CategoriesView />}/>
+                <Route path='/users' element={<UserList />}/>
                 <Route path='/contacts' element={<ContactsView />}/>
                 <Route path='/*' element={<NotFoundView />}/>
                 <Route path='/search' element={<SearchView />}/>
@@ -44,6 +54,8 @@ const App = () => {
                 <Route path='/shoppingcart' element={<ShoppingCartView />}/>
                 <Route path='/compare' element={<CompareView />}/>
               </Routes>
+              </ProductsUpdateProvider>
+              </UserProvider>
             </ProductProvider>
         </ShoppingCartProvider>
       </BrowserRouter>
