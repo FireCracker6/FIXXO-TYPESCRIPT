@@ -14,7 +14,7 @@ useEffect(() => {
   getAll()
 
  
-},  [] )
+},  [getAll] )
 
 
 const removeProduct = (articleNumber:number) => {
