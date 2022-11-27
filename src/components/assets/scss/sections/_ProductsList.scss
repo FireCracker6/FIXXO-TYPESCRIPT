@@ -1,0 +1,67 @@
+
+
+
+.PlistContainer {
+    display: grid;
+    grid-auto-flow: row;
+    justify-content: center;
+    gap: 1rem;
+    border: 1px solid #00000023;
+    background-color: #e9ca901f;
+    h5 {
+        font-weight: 800;
+        color: black;
+        padding: 10px 10px 2px;
+    }
+    .PListHeader {
+        display: flex;
+        justify-content: flex-start;
+        padding: 10px 10px 2px;
+        font-family: $font-poppins;
+        font-weight:  $font-weight-extra-bold;
+        font-size: $font-size-24;
+
+    }
+    .PListImage img{
+        height: 200px;
+        width: 200px;
+        object-fit: contain;
+        padding: 10px 20px 20px;
+    }
+    p {
+        font-family: $font-poppins;
+        font-size: 1.1rem;
+        padding: 10px 10px 2px;
+    }
+    .PListContent {
+        display: flex;
+        width: 100%;
+        border: 1px solid #00000023;
+    }
+    .PDescription {
+        display: block;
+        width: 200px;
+        font-size: 1.1rem;
+    }
+    .P-Price {
+        display: block;
+        width: 200px;
+    }
+    .P-Buttons {
+        display: inline-block;
+        width: 100%;
+        font-size: 1rem;
+        margin: 0 1rem 1rem 0;
+        .btn {
+            font-size: 1rem;
+            font-family: $font-poppins;
+            width: 150px;
+        }
+      
+    }
+    .P-Title {
+        display: block;
+        width: 200px;
+    }
+  
+}

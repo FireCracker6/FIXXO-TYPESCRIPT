@@ -23,21 +23,22 @@ const removeProduct = (articleNumber:number) => {
 
   return (
    <>
-   <div className='container d-grid justify-content-center align-items-center mt-5'>
-    <h3 className='display-6 mb-4'>List of Products </h3>
+ 
+   <div className='container PlistContainer mt-5'>
+    <h3 className='PListHeader'>List of Products </h3>
         {
-            products.map((product: Product  ) => (<div  className='d-flex justify-content-center mb-3' key={product.articleNumber} >
+            products.map((product: Product  ) => (<div  className='PListContent' key={product.articleNumber} >
                 <div>  <h5>Category:</h5> <p>{product.category}</p>  </div>
-                <div> <img src={product.imageURL} alt={product.title} /> </div>
+                <div className='PListImage'> <img src={product.imageURL} alt={product.title} /> </div>
 
-                <div>  <h5>Title:</h5> <p>{product.title}</p>  </div>
-                <div className='mb-5'>  <h4>Description:</h4> <p>{product.description} </p> </div>
-                <div>  <h5>Price:</h5><p>{currencyFormatter(product.price)} </p>  </div>
-                <div>   <NavLink className=" btn btn-dark " to={`/updateproduct/${product.articleNumber}`} end> 
-                          UPDATE PRODUCT
+                <div>  <h5>Title:</h5> <p className='P-Title'>{product.title}</p>  </div>
+                <div className='mb-5'>  <h5>Description:</h5> <p className='PDescription'>{product.description} </p> </div>
+                <div>  <h5>Price:</h5><p className='P-Price'>{currencyFormatter(product.price)} </p>  </div>
+                <div className='P-Buttons'>   <NavLink className=" btn btn-dark " to={`/updateproduct/${product.articleNumber}`} end> 
+                         Update Product
                         </NavLink></div>
                        
-                <div > <button className=' btn btn-danger  ' onClick={(e) =>  removeProduct(product.articleNumber)} >Remove Product</button>
+                <div className='P-Buttons'> <button className=' btn btn-danger  ' onClick={(e) =>  removeProduct(product.articleNumber)} >Remove Product</button>
                 </div>
 
                </div >) )

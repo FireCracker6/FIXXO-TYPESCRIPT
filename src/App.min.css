@@ -4267,4 +4267,74 @@ footer .social-media a:hover {
   .shoppingcart {
     width: 500px !important;
   }
+}
+.PlistContainer {
+  display: grid;
+  grid-auto-flow: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.137254902);
+  background-color: rgba(233, 202, 144, 0.1215686275);
+}
+.PlistContainer h5 {
+  font-weight: 800;
+  color: black;
+  padding: 10px 10px 2px;
+}
+.PlistContainer .PListHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 10px 10px 2px;
+  font-family: "Poppin", sans-serif;
+  font-weight: 800;
+  font-size: 2.8125;
+}
+.PlistContainer .PListImage img {
+  height: 200px;
+  width: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 10px 20px 20px;
+}
+.PlistContainer p {
+  font-family: "Poppin", sans-serif;
+  font-size: 1.1rem;
+  padding: 10px 10px 2px;
+}
+.PlistContainer .PListContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.137254902);
+}
+.PlistContainer .PDescription {
+  display: block;
+  width: 200px;
+  font-size: 1.1rem;
+}
+.PlistContainer .P-Price {
+  display: block;
+  width: 200px;
+}
+.PlistContainer .P-Buttons {
+  display: inline-block;
+  width: 100%;
+  font-size: 1rem;
+  margin: 0 1rem 1rem 0;
+}
+.PlistContainer .P-Buttons .btn {
+  font-size: 1rem;
+  font-family: "Poppin", sans-serif;
+  width: 150px;
+}
+.PlistContainer .P-Title {
+  display: block;
+  width: 200px;
 }/*# sourceMappingURL=App.min.css.map */

@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import {IProductsUpdateContext, ProductsUpdateContext} from './contexts/ProductsUpdateContext'
 import { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
+import ProductsList from './ProductsList'
+import { currencyFormatter } from './utilities/currencyFormatter'
 
 
 const UpdateProduct= () => {
@@ -46,7 +48,7 @@ const removeProduct = (articleNumber:number) => {
 
   return (
 
-    
+    <>
     
     <div className='container d-flex justify-content-center mb-5'>
  
@@ -87,9 +89,21 @@ BACK TO PRODUCT LIST
     <button className=' btn btn-danger  py-2 mt-3 ' onClick={(e) =>  removeProduct(product.articleNumber)} >Remove Product</button>
 
     </form>
-   
-    </div>
   
+    </div>
+    <div className='container PlistContainer mt-5'>
+
+   <div className='PListContent'>
+
+    <div>  <h5>Category:</h5> <p>{product.category}</p>  </div>
+                <div className='PListImage'> <img src={product.imageURL} alt={product.title} /> </div>
+
+                <div>  <h5>Title:</h5> <p className='P-Title'>{product.title}</p>  </div>
+                <div className='mb-5'>  <h5>Description:</h5> <p className='PDescription'>{product.description} </p> </div>
+                <div>  <h5>Price:</h5><p className='P-Price'>{currencyFormatter(product.price)} </p>  </div>
+                </div>
+                </div>
+    </>
   )
 } 
 
