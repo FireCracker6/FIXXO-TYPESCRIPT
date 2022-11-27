@@ -50,10 +50,10 @@ const removeProduct = (articleNumber:number) => {
 
     <>
     
-    <div className='container d-flex justify-content-center mb-5'>
+    <div className='container d-flex justify-content-center my-5'>
  
     <form onSubmit={update}   className="d-grid mb-5">
-    <div>   <NavLink className=" btn btn-dark " to={`/productsbackend`} end>  
+    <div>   <NavLink className=" d-grid btn btn-dark my-5 " to={`/productsbackend`} end>  
 
 BACK TO PRODUCT LIST
  </NavLink></div>
@@ -85,8 +85,8 @@ BACK TO PRODUCT LIST
        
         <input value={product.price} onChange={(e) =>  setProduct({...product, price: parseFloat(e.target.value)})}  type="number"  step="any"  className='form-control py-2 mb-3' placeholder='Enter a price...' />
      
-             <button id='btn' type='submit' className='btn btn-warning py-2 mt-3' onClick={handleClick}>UPDATE PRODUCT</button>
-    <button className=' btn btn-danger  py-2 mt-3 ' onClick={(e) =>  removeProduct(product.articleNumber)} >Remove Product</button>
+             <button id='btn' type='submit' className='btn btn-danger py-2 mt-3' onClick={handleClick}>UPDATE PRODUCT</button>
+{/*     <button className=' btn btn-danger  py-2 mt-3 ' onClick={(e) =>  removeProduct(product.articleNumber)} >Remove Product</button> */}
 
     </form>
   
