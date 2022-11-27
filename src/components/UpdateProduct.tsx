@@ -6,13 +6,11 @@ import { NavLink } from 'react-router-dom'
 
 
 const UpdateProduct= () => {
-
-
+  const [isShown, setIsShown] = useState(false);
     const {id} = useParams() 
     const idNumber = id as unknown as number
   
     const { product, setProduct, get, update, remove } = React.useContext(ProductsUpdateContext) as IProductsUpdateContext
-   
 
 useEffect(() => {
   get(idNumber)
@@ -21,22 +19,29 @@ useEffect(() => {
     get(idNumber)
   }
 }, [idNumber])
-const targetDiv = document.getElementById("submitMessage");
-const [show,setShow]=useState(true)
+
+
 let message = ''
-let welcome: any
+
+// show the user that product has been updated
  const handleClick = () => {
   message = 'Product updated successfully!'
   console.log(message) 
 
+  // 👇️ toggle shown state
+  setIsShown(current => !current);
+
+  // timeout the message
+  setTimeout(setIsShown, 2000);
+
  }
 
+ 
 
-  
-
+ 
 const removeProduct = (articleNumber:number) => {
   remove(articleNumber)
-  
+
 }
 
   return (
@@ -51,7 +56,19 @@ const removeProduct = (articleNumber:number) => {
 BACK TO PRODUCT LIST
  </NavLink></div>
         <h3 className='display-6 mb-4'>Update Product</h3>
-        <h2 id='submitMessage'>{message}</h2>
+       
+      
+        
+       
+       {/* give the user a message after updating */}
+      {isShown && (
+        <div id='submitMessage'>
+          <h2>Product updated successfully!</h2>
+        </div>
+      )
+}
+
+
       
         <input type="hidden" value={product.articleNumber} />
         <input value={product.category} onChange={(e) =>  setProduct({...product, category: e.target.value})}   type="text" className='form-control py-2 mb-3' placeholder={product.category} />
@@ -66,7 +83,7 @@ BACK TO PRODUCT LIST
        
         <input value={product.price} onChange={(e) =>  setProduct({...product, price: parseFloat(e.target.value)})}  type="number"  step="any"  className='form-control py-2 mb-3' placeholder='Enter a price...' />
      
-             <button type='submit' className='btn btn-warning py-2 mt-3' onClick={handleClick}>UPDATE PRODUCT</button>
+             <button id='btn' type='submit' className='btn btn-warning py-2 mt-3' onClick={handleClick}>UPDATE PRODUCT</button>
     <button className=' btn btn-danger  py-2 mt-3 ' onClick={(e) =>  removeProduct(product.articleNumber)} >Remove Product</button>
 
     </form>
