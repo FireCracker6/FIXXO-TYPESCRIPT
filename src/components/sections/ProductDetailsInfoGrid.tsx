@@ -39,7 +39,7 @@ export const ProductDetailsInfoGrid: React.FC<IProductTilesProps> = ({ items = [
 
     
 
-     document.title = `${product.name} || Fixxo`
+     document.title = `${product.title} || Fixxo`
 
 
   return (
@@ -58,7 +58,7 @@ export const ProductDetailsInfoGrid: React.FC<IProductTilesProps> = ({ items = [
 
         <div className="product-detail-description">
            <div className="prod-desc-1">
-         <h2 data-testid="pName" >{product.name}</h2> 
+         <h2 data-testid="pName" >{product.title}</h2> 
          
             <p><small>SKU: 12345670 BRAND: The Northland</small></p>
             <div className="text-theme">

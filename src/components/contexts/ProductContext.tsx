@@ -38,7 +38,7 @@ export const useProductContext = () => {
 }
 
 export const ProductProvider= ({children}: IProductProps)  => {
-    const url = `https://win22-webapi.azurewebsites.net/api/products`
+    const url = `http://localhost:5000/api/products`
     const [product, setProduct]   = useState<string>('')
     const [products, setProducts] = useState<Products[]>([])
     const [featuredProducts, setFeaturedProducts] = useState<Products[]>([])
@@ -62,7 +62,7 @@ export const ProductProvider= ({children}: IProductProps)  => {
         setDiscountProducts(await res.json())
     }
     const getProduct = async (articleNumber: number) => {
-        const res = await fetch(url + `${articleNumber}`)
+        const res = await fetch(`${url}/${articleNumber}`)
         setProduct(await res.json())
     }
 

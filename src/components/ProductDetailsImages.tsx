@@ -34,10 +34,10 @@ export const ProductDetailsImages: React.FC<IProductTilesProps>= () => {
        
 
         <div className="item-1-prod-images">
-         <div className="item-1"> <img src={product.imageName}  alt={product.imageName} /></div>
-         <div className="item-2"><img src={product.imageName} alt={product.imageName} /></div>
-         <div className="item-3"><img src={product.imageName} alt={product.imageName} /></div>
-         <div className="item-4"><img src={product.imageName} alt={product.imageName} /></div>
+         <div className="item-1"> <img src={product.imageURL}  alt={product.imageURL} /></div>
+         <div className="item-2"><img src={product.imageURL} alt={product.imageURL} /></div>
+         <div className="item-3"><img src={product.imageURL} alt={product.imageURL} /></div>
+         <div className="item-4"><img src={product.imageURL} alt={product.imageURL} /></div>
    
    
              

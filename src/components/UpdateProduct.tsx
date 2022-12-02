@@ -20,7 +20,7 @@ useEffect(() => {
   return () => {
     get(idNumber)
   }
-}, [idNumber])
+}, [])
 
 
 let message = ''
@@ -83,7 +83,7 @@ BACK TO PRODUCT LIST
 
         <input value={product.description} onChange={(e) =>  setProduct({...product, description: e.target.value})} type="text" className='form-control py-2 mb-3' placeholder='Enter description..' />
        
-        <input value={product.price} onChange={(e) =>  setProduct({...product, price: parseFloat(e.target.value)})}  type="number"  step="any"  className='form-control py-2 mb-3' placeholder='Enter a price...' />
+        <input value={product.price} onChange={(e) =>  setProduct({...product, price: Number(e.target.value)})}  type="number"  step="any"  className='form-control py-2 mb-3' placeholder='Enter a price...' />
      
              <button id='btn' type='submit' className='btn btn-danger py-2 mt-3' onClick={handleClick}>UPDATE PRODUCT</button>
 {/*     <button className=' btn btn-danger  py-2 mt-3 ' onClick={(e) =>  removeProduct(product.articleNumber)} >Remove Product</button> */}

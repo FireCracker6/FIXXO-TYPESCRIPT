@@ -23,7 +23,9 @@ import UserList from './components/UserList';
 import Products_Backend from './components/Products_Backend';
 import ProductsUpdateProvider from './components/contexts/ProductsUpdateContext';
 import UpdateProduct from './components/UpdateProduct';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
 
 const App = () => {

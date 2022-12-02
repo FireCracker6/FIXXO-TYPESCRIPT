@@ -25,7 +25,7 @@ const DiscountCardMobile: React.FC<Props> = ({item}) => {
     <div className="card mb-3 " >
     <div className="row g-0">
       <div className="col-md-4">
-      <img src={item.imageName}  alt={item.name}/>
+      <img src={item.imageURL}  alt={item.title}/>
       </div>
       <ul className="card-menu ">
         <li><button onClick={addToWishList} className='productButton'><i className="fa-light fa-heart "></i></button></li>
@@ -35,7 +35,7 @@ const DiscountCardMobile: React.FC<Props> = ({item}) => {
       <div className="col-md-8">
         <div className="card-body">
           <h5 className="card-title">{item.category}</h5>
-          <h4>{item.name}</h4>
+          <h4>{item.title}</h4>
                     <div className="text-theme">
                         <i className="fa-solid fa-star-sharp"></i>
                         <i className="fa-solid fa-star-sharp"></i>

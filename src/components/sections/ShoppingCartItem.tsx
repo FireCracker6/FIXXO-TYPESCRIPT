@@ -15,10 +15,10 @@ export const ShoppingCartItem: React.FC<Props> = ({item}) => {
   return (
     <div className='shoppingcart-item'  >
     <div className="item-image">
-        <img src={item.product.imageName} alt={item.product.name}/>
+        <img src={item.product.imageURL} alt={item.product.title}/>
     </div>
         <div className="item-info">
-            <div className='item-info-name' data-testid="shoppingCart">{item.product.name} 
+            <div className='item-info-name' data-testid="shoppingCart">{item.product.title} 
              </div> 
              <div className='item-info-quantity-box'>
              <div className="item-info-quantity">

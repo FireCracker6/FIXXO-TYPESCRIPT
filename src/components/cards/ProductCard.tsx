@@ -27,7 +27,7 @@ const ProductCard: React.FC<Props> = ( {item}) => {
             <div className="card" >
               <div className="card" >
               
-                 <div className="featured-image"><img src={item.imageName}  alt={item.name} />
+                 <div className="featured-image"><img src={item.imageURL}  alt={item.title} />
                  </div> 
                   <ul className="card-menu ">
                   <li><button onClick={addToWishList} className='productButton'><i className="fa-light fa-heart "></i></button></li>
@@ -43,7 +43,7 @@ const ProductCard: React.FC<Props> = ( {item}) => {
               <div className="card-body">
                 
                     <h5 className="card-title">{item.category}</h5>
-                    <h4>{item.name}</h4>
+                    <h4>{item.title}</h4>
                         <div className="text-theme">
                             <i className="fa-solid fa-star-sharp"></i>
                             <i className="fa-solid fa-star-sharp"></i>

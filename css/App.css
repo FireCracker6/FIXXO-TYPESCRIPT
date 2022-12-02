@@ -4275,8 +4275,8 @@ footer .social-media a:hover {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.137254902);
-  background-color: rgba(233, 202, 144, 0.1215686275);
+  border: 1px solid rgba(236, 177, 230, 0.3529411765);
+  background-color: rgba(244, 177, 236, 0.1215686275);
 }
 .PlistContainer h5 {
   font-weight: 800;
@@ -4296,8 +4296,8 @@ footer .social-media a:hover {
   font-size: 2.8125;
 }
 .PlistContainer .PListImage img {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   -o-object-fit: contain;
      object-fit: contain;
   padding: 10px 20px 20px;
@@ -4337,4 +4337,22 @@ footer .social-media a:hover {
 .PlistContainer .P-Title {
   display: block;
   width: 200px;
+}
+
+.selectCategory {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5rem;
+  color: #7E7F80;
+  margin-bottom: 1rem;
+}
+
+.errorProduct {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  color: red;
+}
+
+.error {
+  color: #FF7373;
+  border: 1px solid #FF7373;
 }/*# sourceMappingURL=App.css.map */
