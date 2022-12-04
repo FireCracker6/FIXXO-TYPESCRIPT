@@ -27,7 +27,12 @@ const HomeView = () => {
     getFeaturedProducts(4)
     getDiscountProducts(3)
   
-  }, [getFeaturedProducts, getDiscountProducts])
+    return () => {
+      getFeaturedProducts(0)
+    getDiscountProducts(0)
+    }
+  }, [])
+
 
 document.title = "Welcome To Fixxo." 
 

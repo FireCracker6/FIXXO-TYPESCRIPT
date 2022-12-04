@@ -12,8 +12,8 @@ export interface ProductContextInterface {
     discountProducts: Products[]
     getProduct: (articleNumber: number) => void
     getProducts: () => void
-    getFeaturedProducts: (take: number) => void
-    getDiscountProducts: (take: number) => void
+    getFeaturedProducts: (take: number ) => void
+ getDiscountProducts: (take: number) => void
 
 
   
@@ -53,20 +53,35 @@ export const ProductProvider= ({children}: IProductProps)  => {
 
     }
     
-    const getFeaturedProducts = async (take = 0) => {
-        const res = await fetch(url + `?take=${take}`)
+    const getFeaturedProducts = async (take: number = 0) => {
+        let baseURL = `${url}`
+ 
+         if (take !== 0) 
+        baseURL +=`/featured/${take}`
+      
+ 
+        const res = await fetch(baseURL)
         setFeaturedProducts(await res.json())
+        console.log('baseURL ' + baseURL)
     }
-    const getDiscountProducts = async (take = 0) => {
-        const res = await fetch(url + `?take=${take}`)
+     const getDiscountProducts = async (take : number) => {
+        let baseDiscountURL = `${url}`
+ 
+        if (take !== undefined)
+        baseDiscountURL +=`/discount/${take}`
+ 
+        const res = await fetch(baseDiscountURL)
         setDiscountProducts(await res.json())
-    }
+        console.log('baseURL ' + baseDiscountURL)
+     } 
     const getProduct = async (articleNumber: number) => {
-        const res = await fetch(`${url}/${articleNumber}`)
+        const res = await fetch(`${url}/details/${articleNumber}`)
         setProduct(await res.json())
+
+       
     }
 
-    return <ProductContext.Provider value={{ product, getProduct, getProducts,  products, featuredProducts,discountProducts, getFeaturedProducts, getDiscountProducts}}>
+    return <ProductContext.Provider value={{ product, getProduct, getProducts,  products, featuredProducts,discountProducts, getFeaturedProducts,  getDiscountProducts }}>
         {children}
     </ProductContext.Provider>
 

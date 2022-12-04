@@ -22,11 +22,20 @@ const  ProductDetailsView: React.FC= () =>  {
 
  
   const {featuredProducts, getFeaturedProducts} = useProductContext() as ProductContextInterface
+  useEffect(() => {
+    getFeaturedProducts(4)
   
+  
+    return () => {
+      getFeaturedProducts(0)
+ 
+    }
+  }, [])
+
   useEffect(() => {
     getFeaturedProducts(4)
     
-  }, [getFeaturedProducts])
+  }, [])
 
 
 

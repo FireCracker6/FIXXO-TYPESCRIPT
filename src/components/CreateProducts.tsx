@@ -133,7 +133,7 @@ const handleClick = () => {
     else
 setValid(true)
   
-    inputCategory.value = ''
+    inputCategory.value = 'Choose Category...'
     
   
     
@@ -180,7 +180,7 @@ setValid(true)
       
      
         <select name="" id="categoryList" className='form-select form-select-lg mb-3' onChange={(e) =>  setProductRequest({...productRequest, category:  e.target.value})} placeholder='select category'  > 
-        <option value="" disabled selected hidden>Choose Category...</option>
+        <option value="Choose Category...">Choose Category...</option>
           <option value="Pants">Pants</option>
         <option value="Jackets">Jackets</option>
         <option value="Sets">Sets</option>

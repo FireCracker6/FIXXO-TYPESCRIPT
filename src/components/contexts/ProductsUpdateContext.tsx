@@ -25,8 +25,8 @@ export const useProductsUpdateContext = () => { return useContext(ProductsUpdate
 const ProductsUpdateProvider = ({children} : ProductProviderProps) => {
 
     const baseUrl = 'http://localhost:5000/api/products'
-    const product_default: Product = {articleNumber: 0, category: '', imageURL: '', title: '', description: '', price: 0}
-    const productRequest_default: ProductRequest = { category: '', imageURL: '', title: '', description: '', price: 0}
+    const product_default: Product = {articleNumber: 0, tag: '', category: '', imageURL: '', title: '', description: '', price: 0}
+    const productRequest_default: ProductRequest = { tag: '', category: '', imageURL: '', title: '', description: '', price: 0}
 
     const [product, setProduct] = useState<Product>(product_default)
     const [productRequest, setProductRequest] = useState<ProductRequest>(productRequest_default)

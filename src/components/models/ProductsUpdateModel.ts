@@ -1,5 +1,7 @@
 export interface Product{
+
     articleNumber: number
+    tag: string
     imageURL: string
     category: string
     title: string
@@ -9,7 +11,7 @@ export interface Product{
 }
 export interface ProductRequest {
    
-    
+    tag: string
     category: string
     imageURL: string
     title: string

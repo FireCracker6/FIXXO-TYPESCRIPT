@@ -17,10 +17,13 @@ export const ProductDetailsImages: React.FC<IProductTilesProps>= () => {
     const {product, getProduct} = useProductContext() as ProductContextInterface
     const idNumber = id as unknown as number
 
+   
     useEffect(() => {
-         getProduct(idNumber)
+      getProduct(idNumber)
     
-    },[])
+  },[  getProduct, idNumber])
+
+
 
 
 

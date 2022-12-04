@@ -1,8 +1,9 @@
 export interface Products {
+    tag: string
     articleNumber: number
+    imageURL: string
     name: string
     category: string
-   price: number
-   imageName: string
-   quantity: number
+    price: number
+    quantity: number
 }
