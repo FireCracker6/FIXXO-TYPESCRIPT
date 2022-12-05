@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import {IProductsUpdateContext, ProductsUpdateContext} from './contexts/ProductsUpdateContext'
 import { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import ProductsList from './ProductsList'
 import { currencyFormatter } from './utilities/currencyFormatter'
 
 
@@ -12,15 +11,22 @@ const UpdateProduct= () => {
     const {id} = useParams() 
     const idNumber = id as unknown as number
   
-    const { product, setProduct, get, update, remove } = React.useContext(ProductsUpdateContext) as IProductsUpdateContext
+    const { product, setProduct, get, update } = React.useContext(ProductsUpdateContext) as IProductsUpdateContext
+    
+    
+    useEffect(() => {
+      get(idNumber)
+    
+    
+      return () => {
+        get(idNumber)
+   
+      }
+    }, [])
+  
 
-useEffect(() => {
-  get(idNumber)
-
-  return () => {
-    get(idNumber)
-  }
-}, [])
+console.log(product.price)
+console.log(id)
 
 
 let message = ''
@@ -41,10 +47,6 @@ let message = ''
  
 
  
-const removeProduct = (articleNumber:number) => {
-  remove(articleNumber)
-
-}
 
   return (
 
@@ -73,6 +75,7 @@ BACK TO PRODUCT LIST
 
       
         <input type="hidden" value={product.articleNumber} />
+        <input type="hidden" value={product.tag} />
         <input value={product.category} onChange={(e) =>  setProduct({...product, category: e.target.value})}   type="text" className='form-control py-2 mb-3' placeholder={product.category} />
         <div> <img src={product.imageURL} alt={product.title} /> </div>
 

@@ -58,11 +58,11 @@ const ProductsUpdateProvider = ({children} : ProductProviderProps) => {
    
     
     const get  =async (articleNumber: any) => {
-        const result = await fetch(`${baseUrl}/${articleNumber}` )
+        const result = await fetch(`${baseUrl}/details/${articleNumber}` )
         
         if (result.status === 200)
         setProduct(await result.json())
-    
+    console.log(product.articleNumber)
        
     }
     
@@ -76,7 +76,7 @@ const ProductsUpdateProvider = ({children} : ProductProviderProps) => {
     const update =async (e: React.FormEvent) => {
         e.preventDefault()
 
-        const result = await fetch(`${baseUrl}/${product.articleNumber}`, {
+        const result = await fetch(`${baseUrl}/details/${product.articleNumber}`, {
 
             method: 'put',
             headers: {
@@ -86,14 +86,14 @@ const ProductsUpdateProvider = ({children} : ProductProviderProps) => {
 
         
         })
-
+       
         if (result.status === 200) {
             setProduct(await result.json())
         }
     }
 
     let remove = async (articleNumber: number) => {
-        let result = await fetch(`${baseUrl}/${articleNumber}`, {
+        let result = await fetch(`${baseUrl}/details/${articleNumber}`, {
             method: 'delete'
         })
 
