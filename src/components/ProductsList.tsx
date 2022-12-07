@@ -36,6 +36,7 @@ const removeProduct = (articleNumber:number) => {
                 <div className='PListImage'> <img src={product.imageURL} alt={product.title} /> </div>
 
                 <div>  <h5>Title:</h5> <p className='P-Title'>{product.title}</p>  </div>
+                <div>  <h5>Tag:</h5> <p className='P-Tag'>{product.tag}</p>  </div>
                 <div className='mb-5'>  <h5>Description:</h5> <p className='PDescription'>{product.description} </p> </div>
                 <div>  <h5>Price:</h5><p className='P-Price' >{currencyFormatter(product.price)} </p>  </div>
                 <div className='P-Buttons'>   <NavLink className=" btn btn-dark " to={`/updateproduct/${product.articleNumber}`} end> 

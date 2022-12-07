@@ -4337,17 +4337,10 @@ footer .social-media a:hover {
 .PlistContainer .P-Title {
   display: block;
   width: 200px;
-  border: none !important;
-  background-color: transparent !important;
 }
-.PlistContainer .P-Tag {
-  display: block;
-  width: 100px;
-}
-
-.UpdateImage img {
-  height: 300px;
-  width: 300px;
+.PlistContainer form .UpdateImage {
+  height: 50%;
+  width: 50%;
   -o-object-fit: contain;
      object-fit: contain;
   padding: 10px 20px 20px;
@@ -4369,4 +4362,4 @@ footer .social-media a:hover {
 .error {
   color: #FF7373;
   border: 1px solid #FF7373;
-}/*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App.min.css.map */

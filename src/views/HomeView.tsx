@@ -25,11 +25,11 @@ const HomeView = () => {
 
   useEffect(() => {
     getFeaturedProducts(4)
-   /*  getDiscountProducts(3) */
+  getDiscountProducts(3)
   
     return () => {
       getFeaturedProducts(4)
-  /*   getDiscountProducts(0) */
+ getDiscountProducts(3) 
     }
   }, [])
 

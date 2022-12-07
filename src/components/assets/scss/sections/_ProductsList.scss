@@ -22,7 +22,7 @@
         font-size: $font-size-24;
 
     }
-    .PListImage img{
+    .PListImage img {
         height: 150px;
         width: 150px;
         object-fit: contain;
@@ -62,10 +62,21 @@
     .P-Title {
         display: block;
         width: 200px;
+        border: none !important;
+        background-color: transparent !important;
     }
-
-   
+    .P-Tag {
+        display: block;
+        width: 100px;
+    }
+     
   
+}
+.UpdateImage img  {
+    height: 300px;
+    width:300px;
+    object-fit: contain;
+    padding: 10px 20px 20px;
 }
  //create product
 .selectCategory {

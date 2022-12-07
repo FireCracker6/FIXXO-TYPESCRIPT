@@ -13,7 +13,7 @@ const CreateProducts = () => {
   const [isShown, setIsShown] = useState(false);
   const [isValid, setValid] = useState(true);
   const [errors, setErrors] = useState({ category: '', title: '', imageURL: '', price: ''} )
-    const { productRequest, getAll, setProductRequest, create } = React.useContext(ProductsUpdateContext) as IProductsUpdateContext
+    const { productRequest, setProductRequest, create } = React.useContext(ProductsUpdateContext) as IProductsUpdateContext
 
    
     
@@ -185,10 +185,11 @@ setValid(true)
         {productRequest.category.length < 4 && productRequest.category.length !== 0 &&  <span className='errorProduct'>{errors.imageURL}</span>}
 
         <input value={productRequest.imageURL} onChange={(e) =>  setProductRequest({...productRequest, imageURL: e.target.value})}  id='imageAPIURL' type="text" className='form-control py-2 mb-3' onKeyUp={handleErrors}  placeholder='Enter image url...'/>
-        {productRequest.imageURL.length < 4 && productRequest.imageURL.length !== 0 &&  <span className='errorProduct'>{errors.imageURL}</span>}
+        {productRequest.imageURL.length < 4 && productRequest.imageURL.length !== 0 &&  <span className='errorProduct'>{errors.category}</span>}
 
         <input value={productRequest.title} onChange={(e) =>  setProductRequest({...productRequest, title: e.target.value})} type="text" name='title' className='form-control py-2 mb-3'  id='title'  onKeyUp={handleErrors} placeholder='Enter title...' />
         {productRequest.title.length < 4 && productRequest.title.length !== 0 &&  <span className='errorProduct'>{errors.title}</span>}
+        <input value={productRequest.tag} onChange={(e) =>  setProductRequest({...productRequest, tag: e.target.value})} type="text" name='tag' className='form-control py-2 mb-3'  id='tag'   placeholder='Enter tag...' />
         <input value={productRequest.description} onChange={(e) =>  setProductRequest({...productRequest, description: e.target.value})} type="text" className='form-control py-2 mb-3' placeholder='Enter your description...' />
         <input id='price' onChange={(e) =>  setProductRequest({...productRequest, price: Number(e.target.value).toFixed(2)})}  type="number" step="0.05" onKeyUp={handleErrors} className='form-control py-2 mb-3' min={1} placeholder='Enter a price...'  />
         
