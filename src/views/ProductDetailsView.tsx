@@ -27,16 +27,13 @@ const  ProductDetailsView: React.FC= () =>  {
   
   
     return () => {
-      getFeaturedProducts(0)
+      getFeaturedProducts(3)
  
     }
   }, [])
 
-  useEffect(() => {
-    getFeaturedProducts(4)
-    
-  }, [])
-
+ 
+ 
 
 
  

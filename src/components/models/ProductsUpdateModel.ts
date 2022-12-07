@@ -1,20 +1,22 @@
 export interface Product{
 
     articleNumber: number
-    tag: string
-    imageURL: string
-    category: string
     title: string
+    category: string
+    imageURL: string
     description: string
+    tag: string 
     price:  number
+    rating: number
   
 }
 export interface ProductRequest {
    
-    tag: string
+    title: string
     category: string
     imageURL: string
-    title: string
     description: string
+    tag: string 
     price: string | number
+    rating:  string | number
 }

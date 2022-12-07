@@ -9,13 +9,16 @@ import { NavLink } from 'react-router-dom'
 const ProductsList = () => {
 const { products, getAll, remove} = React.useContext(ProductsUpdateContext) as IProductsUpdateContext
 
-useEffect(() => {
+useEffect(()=>{
+    
   getAll()
-
-  return () => {
-    getAll()
-  }
-}, [getAll()])
+  const interval=setInterval(()=>{
+  getAll()
+   },1000)
+     
+     
+   return()=>clearInterval(interval)
+},[])
 
 
 const removeProduct = (articleNumber:number) => {

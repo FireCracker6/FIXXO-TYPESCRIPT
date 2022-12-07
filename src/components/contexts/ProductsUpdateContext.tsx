@@ -10,7 +10,7 @@ export interface IProductsUpdateContext {
     products: Product[]
     setProducts: React.Dispatch<React.SetStateAction<Product[]>>
     create: (e: React.FormEvent) => void
-    get: (articleNumber: number) => void
+    get: (_id: number) => void
     getAll: () => void
     update: (e: React.FormEvent) => void
     remove: (articleNumber: number) => void
@@ -25,21 +25,40 @@ export const useProductsUpdateContext = () => { return useContext(ProductsUpdate
 const ProductsUpdateProvider = ({children} : ProductProviderProps) => {
 
     const baseUrl = 'http://localhost:5000/api/products'
-    const product_default: Product = {articleNumber: 0, tag: '', category: '', imageURL: '', title: '', description: '', price: 0}
-    const productRequest_default: ProductRequest = { tag: '', category: '', imageURL: '', title: '', description: '', price: 0}
+    const product_default: Product = {
+        articleNumber: 0,
+        title: '',
+        category: '',
+        imageURL: '',
+        description: '',
+        tag: '', 
+        price: 0,
+        rating: 0,
+    }
+    const productRequest_default: ProductRequest = { 
+        title: '',
+        category: '',
+        imageURL: '',
+        description: '',
+        tag: '', 
+        price: 0,
+        rating: 0,
+    }
 
     const [product, setProduct] = useState<Product>(product_default)
     const [productRequest, setProductRequest] = useState<ProductRequest>(productRequest_default)
     const [products, setProducts] = useState<Product[]>([])
-
+const productNumber = product.articleNumber
     const create = async (e: React.FormEvent) => {
-        e.preventDefault()
-
+     e.preventDefault() 
+      
         const result = await fetch(`${baseUrl}`, {
 
             method: 'post',
             headers: {
-                'Content-Type': 'application/json'
+                "Access-Control-Allow-Origin": "*",
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
             },
             body: JSON.stringify(productRequest)
 
@@ -53,16 +72,17 @@ const ProductsUpdateProvider = ({children} : ProductProviderProps) => {
         }
         else
         console.log('error')
+      
     }
 
    
     
     const get  =async (articleNumber: any) => {
-        const result = await fetch(`${baseUrl}/details/${articleNumber}` )
+        const result = await fetch(`${baseUrl}/product/details/${articleNumber}` )
         
         if (result.status === 200)
         setProduct(await result.json())
-    console.log(product.articleNumber)
+   
        
     }
     
@@ -76,7 +96,7 @@ const ProductsUpdateProvider = ({children} : ProductProviderProps) => {
     const update =async (e: React.FormEvent) => {
         e.preventDefault()
 
-        const result = await fetch(`${baseUrl}/details/${product.articleNumber}`, {
+        const result = await fetch(`${baseUrl}/product/details/${productNumber}`, {
 
             method: 'put',
             headers: {
@@ -92,8 +112,9 @@ const ProductsUpdateProvider = ({children} : ProductProviderProps) => {
         }
     }
 
-    let remove = async (articleNumber: number) => {
-        let result = await fetch(`${baseUrl}/details/${articleNumber}`, {
+    let remove = async (_id: number) => {
+        console.log(_id)
+        let result = await fetch(`${baseUrl}/${_id}`, {
             method: 'delete'
         })
 

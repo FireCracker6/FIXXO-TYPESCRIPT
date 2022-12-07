@@ -21,7 +21,7 @@ interface IProductTilesProps {
 export const ProductDetailsInfoGrid: React.FC<IProductTilesProps> = ({ items = []}) => {
     const {id} = useParams() 
 
-    const idNumber = id as unknown as number
+   /*  const idNumber = id as unknown as number */
   const { incrementQuantity}= useShoppingCart() as ShoppingCartContextInterface 
    
   
@@ -31,9 +31,9 @@ export const ProductDetailsInfoGrid: React.FC<IProductTilesProps> = ({ items = [
     const {product, getProduct} = useProductContext() as ProductContextInterface
 
     useEffect(() => {
-        getProduct(idNumber)
+
       
-    },[  getProduct, idNumber])
+    },[  getProduct, id])
 
 
 

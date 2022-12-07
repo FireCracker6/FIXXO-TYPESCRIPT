@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { InputGroup } from 'react-bootstrap'
-import { preProcessFile } from 'typescript';
+
 
 
 import {ProductsUpdateContext, IProductsUpdateContext } from './contexts/ProductsUpdateContext'
-import Footer from './Footer';
 
-interface IErrors {
-  title: string
-  imageURL: string
-  price: string
-}
+
+
 
 const CreateProducts = () => {
 
@@ -18,9 +13,10 @@ const CreateProducts = () => {
   const [isShown, setIsShown] = useState(false);
   const [isValid, setValid] = useState(true);
   const [errors, setErrors] = useState({ category: '', title: '', imageURL: '', price: ''} )
-    const { productRequest, setProductRequest, create } = React.useContext(ProductsUpdateContext) as IProductsUpdateContext
+    const { productRequest, getAll, setProductRequest, create } = React.useContext(ProductsUpdateContext) as IProductsUpdateContext
 
- 
+   
+    
 
 const handleErrors = (e: React.FormEvent) => {
 e.preventDefault()
@@ -34,8 +30,8 @@ e.preventDefault()
 
  
 
-if (productRequest.title.length != 0) {
-  if (inputTitle != null ) {
+if (productRequest.title.length !== 0) {
+  if (inputTitle !== null ) {
     console.log(inputTitle.value); // 👉️ "Initial Value"
   if (productRequest.title.length < 4) {
     setIsShown(current => !current);
@@ -48,8 +44,8 @@ else
 setValid(true)
   } 
 }
-if (productRequest.imageURL.length != 0) {
-   if (inputImage != null ) {
+if (productRequest.imageURL.length !== 0) {
+   if (inputImage !== null ) {
     console.log(inputImage.value); // 👉️ "Initial Value"
   if (productRequest.imageURL.length < 4) {
     setIsShown(current => !current);
@@ -61,7 +57,7 @@ else
 setValid(true)
   }   
 }
-if (productRequest.price != 0) {
+if (productRequest.price !== 0) {
   if (inputPrice != null ) {
    console.log(inputPrice.value); // 👉️ "Initial Value"
  if (productRequest.price < 10) {
@@ -90,10 +86,10 @@ const handleClick = () => {
 
     let inputPrice = document.getElementById('price') as HTMLInputElement | null;
     let inputCategory = document.getElementById('categoryList') as HTMLInputElement | null;
+productRequest.tag = "featured"
 
 
-
-    if (inputPrice != null) {
+    if (inputPrice !== null) {
       console.log(inputPrice.value); // 👉️ "Initial Value"
     if (productRequest.price <= 0) {
     /*   setIsShown(current => !current); */
@@ -116,7 +112,7 @@ const handleClick = () => {
      
     }
     
-    if (inputCategory != null) {
+    if (inputCategory !== null) {
       console.log(inputCategory.value); // 👉️ "Initial Value"
     if (productRequest.category.length < 4) {
       setIsShown(current => !current);
@@ -147,8 +143,8 @@ setValid(true)
 
   
   
-  if (productRequest.imageURL.length != 0) {
-    if (inputImage != null ) {
+  if (productRequest.imageURL.length !== 0) {
+    if (inputImage !== null ) {
      console.log(inputImage.value); // 👉️ "Initial Value"
    if (productRequest.imageURL.length < 4) {
      setIsShown(current => !current);
@@ -186,16 +182,18 @@ setValid(true)
         <option value="Sets">Sets</option>
         <option value="Dresses">Dresses</option>
         <option value="Shoes" >Shoes</option></select >
-        {productRequest.category.length < 4 && productRequest.category.length != 0 &&  <span className='errorProduct'>{errors.imageURL}</span>}
+        {productRequest.category.length < 4 && productRequest.category.length !== 0 &&  <span className='errorProduct'>{errors.imageURL}</span>}
 
         <input value={productRequest.imageURL} onChange={(e) =>  setProductRequest({...productRequest, imageURL: e.target.value})}  id='imageAPIURL' type="text" className='form-control py-2 mb-3' onKeyUp={handleErrors}  placeholder='Enter image url...'/>
-        {productRequest.imageURL.length < 4 && productRequest.imageURL.length != 0 &&  <span className='errorProduct'>{errors.imageURL}</span>}
+        {productRequest.imageURL.length < 4 && productRequest.imageURL.length !== 0 &&  <span className='errorProduct'>{errors.imageURL}</span>}
 
         <input value={productRequest.title} onChange={(e) =>  setProductRequest({...productRequest, title: e.target.value})} type="text" name='title' className='form-control py-2 mb-3'  id='title'  onKeyUp={handleErrors} placeholder='Enter title...' />
-        {productRequest.title.length < 4 && productRequest.title.length != 0 &&  <span className='errorProduct'>{errors.title}</span>}
+        {productRequest.title.length < 4 && productRequest.title.length !== 0 &&  <span className='errorProduct'>{errors.title}</span>}
         <input value={productRequest.description} onChange={(e) =>  setProductRequest({...productRequest, description: e.target.value})} type="text" className='form-control py-2 mb-3' placeholder='Enter your description...' />
         <input id='price' onChange={(e) =>  setProductRequest({...productRequest, price: Number(e.target.value).toFixed(2)})}  type="number" step="0.05" onKeyUp={handleErrors} className='form-control py-2 mb-3' min={1} placeholder='Enter a price...'  />
-        {productRequest.price <= 9 && productRequest.price != 0 &&   <span className='errorProduct'>{errors.price}</span>}
+        
+        <input id='rating' onChange={(e) =>  setProductRequest({...productRequest, rating: Number(e.target.value).toFixed(2)})}  type="number" step="1" max={5} onKeyUp={handleErrors} className='form-control py-2 mb-3' min={1} placeholder='Enter a rating...'  />
+        {productRequest.price <= 9 && productRequest.price !== 0 &&   <span className='errorProduct'>{errors.price}</span>}
         <button type='submit' className='btn btn-success py-2 mt-3' onClick={handleClick}  >ADD PRODUCT</button>
 
     </form>

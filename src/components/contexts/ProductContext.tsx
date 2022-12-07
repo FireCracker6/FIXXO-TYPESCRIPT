@@ -74,8 +74,8 @@ export const ProductProvider= ({children}: IProductProps)  => {
         setDiscountProducts(await res.json())
         console.log('baseURL ' + baseDiscountURL)
      } 
-    const getProduct = async (articleNumber: number) => {
-        const res = await fetch(`${url}/details/${articleNumber}`)
+    const getProduct = async (id: number) => {
+        const res = await fetch(`${url}/product/details/${id}`)
         setProduct(await res.json())
 
        
