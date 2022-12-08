@@ -35,10 +35,10 @@ let message = ''
  const handleClick = () => {
   message = 'Product updated successfully!'
   console.log(message) 
-
+  console.log(product)
   // 👇️ toggle shown state
   setIsShown(current => !current);
- 
+
   // timeout the message
   setTimeout(setIsShown, 5000);
 /*   window.location.reload(); */
@@ -75,7 +75,7 @@ BACK TO PRODUCT LIST
 
       
         <input type="hidden" value={product.articleNumber} />
-        <input type="hidden" value={product.tag} />
+
         <input value={product.category} onChange={(e) =>  setProduct({...product, category: e.target.value})}   type="text" className='form-control py-2 mb-3' placeholder={product.category} />
         <div className='UpdateImage' > <img src={product.imageURL} alt={product.title}  /> </div>
 
@@ -88,6 +88,8 @@ BACK TO PRODUCT LIST
         <input value={product.description} onChange={(e) =>  setProduct({...product, description: e.target.value})} type="text" className='form-control py-2 mb-3' placeholder='Enter description..' />
        
         <input value={product.price} onChange={(e) =>  setProduct({...product, price: Number(e.target.value)})}  type="number"  step={.5}  className='form-control py-2 mb-3' placeholder='Enter a price...' />
+
+        <input value={product.rating} onChange={(e) =>  setProduct({...product, rating: Number(e.target.value)})}  type="number"  step={1}  className='form-control py-2 mb-3' placeholder='Enter a rating...' />
      
              <button id='btn' type='submit' className='btn btn-danger py-2 mt-3' onClick={handleClick}>UPDATE PRODUCT</button>
 
@@ -100,14 +102,19 @@ BACK TO PRODUCT LIST
     
     <div className='PListContent'>
 
-    <div>  <h5>Category:</h5> <p>{product.category}</p>  </div>
+                <div>  <h5>Category:</h5> <p>{product.category}</p>  </div>
                 <div className='PListImage' > <img src={product.imageURL} alt={product.title} /> </div>
-<label htmlFor="html" ></label>
-                <div>  <h5>Title:</h5> <input type="text" className='P-Title' value={product.title} disabled/>   </div>
+                <div>  <h5>Title:</h5> <p className='P-Title'>{product.title}</p>  </div>
+                <div>  <h5>Tag:</h5> <p className='P-Tag'>{product.tag}</p>  </div>
+                <div className='mb-5'>  <h5>Description:</h5> <p className='PDescription'>{product.description} </p> </div>
+                <div>  <h5>Price:</h5><p className='P-Price' >{currencyFormatter(product.price)} </p>  </div>
+                <div>  <h5>Rating:</h5><p className='P-Rating' >{product.rating} </p>  </div>
+
+             {/*    <div>  <h5>Title:</h5> <input type="text" className='P-Title' value={product.title} disabled/>   </div>
                 <div>  <h5>Tag:</h5> <input type="text" className='P-Title' value={product.tag} disabled/>   </div>
                 <div>  <h5>Description:</h5> <input type="text" className='P-Description' value={product.description} disabled/>   </div>
                 <div>  <h5>Price:</h5><input type="text" className='P-Title' value={product.price} disabled/>  </div>
-                <div>  <h5>Rating:</h5> <input type="text" className='P-Title' value={product.rating} disabled/>   </div>
+                <div>  <h5>Rating:</h5> <input type="text" className='P-Title' value={product.rating} disabled/>   </div> */}
               
                 </div> 
                 </div>

@@ -57,8 +57,8 @@ const productNumber = product.articleNumber
             method: 'post',
             headers: {
                 "Access-Control-Allow-Origin": "*",
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify(productRequest)
 
@@ -100,15 +100,19 @@ const productNumber = product.articleNumber
 
             method: 'put',
             headers: {
-                'Content-Type': 'application/json'
+              
+                'Content-Type': 'application/json',
+               
             },
             body: JSON.stringify(product)
+           
 
         
         })
        
         if (result.status === 200) {
             setProduct(await result.json())
+           
         }
     }
 

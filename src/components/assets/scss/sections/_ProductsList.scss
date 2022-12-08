@@ -45,7 +45,7 @@
     }
     .P-Price {
         display: block;
-        width: 200px;
+        width: 100px;
     }
     .P-Buttons {
         display: inline-block;
@@ -68,8 +68,13 @@
     .P-Tag {
         display: block;
         width: 100px;
+        
     }
-     
+    .P-Rating {
+        display: block;
+        width: 100px;
+        margin-right: 10px;
+    }
   
 }
 .UpdateImage img  {

@@ -85,8 +85,9 @@ const handleClick = () => {
  else  setValid(false)
 
     let inputPrice = document.getElementById('price') as HTMLInputElement | null;
+    let inputRating = document.getElementById('rating') as HTMLInputElement | null;
     let inputCategory = document.getElementById('categoryList') as HTMLInputElement | null;
-productRequest.tag = "featured"
+
 
 
     if (inputPrice !== null) {
@@ -105,11 +106,19 @@ productRequest.tag = "featured"
     }
   
     inputPrice.value = ''
+
+    }
+
+    if (inputRating !== null) {
+      console.log(inputRating.value); // 👉️ "Initial Value"
+    if (productRequest.rating === 0) {
+
+      productRequest.rating = 3
     
+    }
   
+    inputRating.value = ''
     
-    
-     
     }
     
     if (inputCategory !== null) {
@@ -117,7 +126,6 @@ productRequest.tag = "featured"
     if (productRequest.category.length < 4) {
       setIsShown(current => !current);
       console.log('errors' )
-      console.log("Category in price!")
       errors.category = "Please choose a category!"
      
       
@@ -182,10 +190,10 @@ setValid(true)
         <option value="Sets">Sets</option>
         <option value="Dresses">Dresses</option>
         <option value="Shoes" >Shoes</option></select >
-        {productRequest.category.length < 4 && productRequest.category.length !== 0 &&  <span className='errorProduct'>{errors.imageURL}</span>}
+        {productRequest.category.length < 4 && productRequest.category.length !== 0 &&  <span className='errorProduct'>{errors.category}</span>}
 
         <input value={productRequest.imageURL} onChange={(e) =>  setProductRequest({...productRequest, imageURL: e.target.value})}  id='imageAPIURL' type="text" className='form-control py-2 mb-3' onKeyUp={handleErrors}  placeholder='Enter image url...'/>
-        {productRequest.imageURL.length < 4 && productRequest.imageURL.length !== 0 &&  <span className='errorProduct'>{errors.category}</span>}
+        {productRequest.imageURL.length < 4 && productRequest.imageURL.length !== 0 &&  <span className='errorProduct'>{errors.imageURL}</span>}
 
         <input value={productRequest.title} onChange={(e) =>  setProductRequest({...productRequest, title: e.target.value})} type="text" name='title' className='form-control py-2 mb-3'  id='title'  onKeyUp={handleErrors} placeholder='Enter title...' />
         {productRequest.title.length < 4 && productRequest.title.length !== 0 &&  <span className='errorProduct'>{errors.title}</span>}

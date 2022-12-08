@@ -39,6 +39,7 @@ const removeProduct = (articleNumber:number) => {
                 <div>  <h5>Tag:</h5> <p className='P-Tag'>{product.tag}</p>  </div>
                 <div className='mb-5'>  <h5>Description:</h5> <p className='PDescription'>{product.description} </p> </div>
                 <div>  <h5>Price:</h5><p className='P-Price' >{currencyFormatter(product.price)} </p>  </div>
+                <div>  <h5>Rating:</h5><p className='P-Rating' >{product.rating} </p>  </div>
                 <div className='P-Buttons'>   <NavLink className=" btn btn-dark " to={`/updateproduct/${product.articleNumber}`} end> 
                 <i className="fa-solid fa-pen-to-square"></i>
                         </NavLink></div>
