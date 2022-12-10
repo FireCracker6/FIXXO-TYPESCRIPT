@@ -4374,4 +4374,33 @@ footer .social-media a:hover {
 .error {
   color: #FF7373;
   border: 1px solid #FF7373;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.on {
+  color: rgb(0, 0, 0);
+}
+
+.off {
+  color: #ccc;
+}
+
+.P-rating {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.P-Rating-Div {
+  display: grid;
+  width: 200px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-auto-flow: rows;
+  justify-items: start;
 }/*# sourceMappingURL=App.min.css.map */

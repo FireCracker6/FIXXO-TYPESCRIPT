@@ -3,21 +3,23 @@ import React, { useEffect, useState } from 'react'
 
 
 import {ProductsUpdateContext, IProductsUpdateContext } from './contexts/ProductsUpdateContext'
+import StarRating from './StarRating';
+
 
 
 
 
 const CreateProducts = () => {
-
-
+  const [isActive, setIsActive] = useState(false);
+  const [rate, setRate] = useState(0);
   const [isShown, setIsShown] = useState(false);
   const [isValid, setValid] = useState(true);
   const [errors, setErrors] = useState({ category: '', title: '', imageURL: '', price: ''} )
     const { productRequest, setProductRequest, create } = React.useContext(ProductsUpdateContext) as IProductsUpdateContext
+    const [rating, setRating] = useState(0);
+    const [hover, setHover] = useState(0);
 
-   
-    
-
+console.log(rating)
 const handleErrors = (e: React.FormEvent) => {
 e.preventDefault()
 
@@ -61,7 +63,7 @@ if (productRequest.price !== 0) {
   if (inputPrice != null ) {
    console.log(inputPrice.value); // 👉️ "Initial Value"
  if (productRequest.price < 10) {
- /*   setIsShown(current => !current); */
+
 
    console.log("price must be over $10 and not negativ")
    errors.price = 'price must be over $10 and not negativ'
@@ -76,11 +78,12 @@ else setValid(false)
 const handleClick = () => {
 
   
-  if (productRequest.category === '' && productRequest.imageURL === '' && productRequest.title === '' && productRequest.price === 0)
+  if (productRequest.category !== '' && productRequest.imageURL !== '' && productRequest.title !== '' && productRequest.price !== 0)
   {
     setValid(true)
   
     console.log(isValid)
+    productRequest.rating = rating
   }
  else  setValid(false)
 
@@ -92,9 +95,9 @@ const handleClick = () => {
 
     if (inputPrice !== null) {
       console.log(inputPrice.value); // 👉️ "Initial Value"
+   
     if (productRequest.price <= 0) {
-    /*   setIsShown(current => !current); */
-/*       setErrrors('Enter a positive price') */
+
       console.log('errors' )
       console.log("minus in price!")
      
@@ -106,20 +109,11 @@ const handleClick = () => {
     }
   
     inputPrice.value = ''
+    setRating(0)
 
     }
 
-    if (inputRating !== null) {
-      console.log(inputRating.value); // 👉️ "Initial Value"
-    if (productRequest.rating === 0) {
-
-      productRequest.rating = 3
-    
-    }
-  
-    inputRating.value = ''
-    
-    }
+   
     
     if (inputCategory !== null) {
       console.log(inputCategory.value); // 👉️ "Initial Value"
@@ -145,6 +139,12 @@ setValid(true)
      
     }
 
+
+
+    
+
+    let checkedRadio = document.getElementsByClassName('rating');
+  
     /* let inputCategory = document.getElementById('categoryList') as HTMLInputElement | null; */
     let inputImage = document.getElementById('imageAPIURL') as HTMLInputElement | null;
   
@@ -167,16 +167,22 @@ setValid(true)
     return isValid;
   }
 
+
+
+
+
+
+
   return (
 <>
 
-    <form onSubmit={create} className="d-grid mb-5">
+    <form onSubmit={create}  className="d-grid mb-5">
             <h1>HI THERE !</h1>
         <h3 className='display-6 mb-4'>Add Update or Delete a Product</h3>
              {/* give the user a message after updating */}
       {isShown && (
         <div id='submitMessage'>
-          <h2 className='errorProduct'>Please choose a category!</h2>
+       {/*    <h2 className='errorProduct'>Please choose a category!</h2> */}
         </div>
       )
 }
@@ -201,7 +207,34 @@ setValid(true)
         <input value={productRequest.description} onChange={(e) =>  setProductRequest({...productRequest, description: e.target.value})} type="text" className='form-control py-2 mb-3' placeholder='Enter your description...' />
         <input id='price' onChange={(e) =>  setProductRequest({...productRequest, price: Number(e.target.value).toFixed(2)})}  type="number" step="0.05" onKeyUp={handleErrors} className='form-control py-2 mb-3' min={1} placeholder='Enter a price...'  />
         
-        <input id='rating' onChange={(e) =>  setProductRequest({...productRequest, rating: Number(e.target.value).toFixed(2)})}  type="number" step="1" max={5} onKeyUp={handleErrors} className='form-control py-2 mb-3' min={1} placeholder='Enter a rating...'  />
+  {/*   <input id='rating' onChange={(e) =>  setProductRequest({...productRequest, rating: Number(e.target.value).toFixed(2)})}   type="number" step="1" max={5} onKeyUp={handleErrors} className='form-control py-2 mb-3' min={1} placeholder='Enter a rating...'  />
+ */}
+  
+  {/* StarRating implemented directly -- (fick inte till det annars) */}
+  <div className='P-rating'>Please choose a Rating</div>
+  <div className="star-rating P-Rating-Div" >
+      {[...Array(5)].map((star: number, index) => {
+       
+        index += 1
+    
+        return (
+     
+               <div key={index}>
+           <button
+                type="button"
+                key={index}
+                className={index <= (hover || rating) ? "on" : "off"}
+                onClick={() => setRating(index)}
+                onMouseEnter={() => setHover(index)}
+                onMouseLeave={() => setHover(rating)}
+              >
+                <span className={"star"}>&#9733;</span>
+              </button>
+            </div>
+           
+        )
+      })}
+    </div>
         {productRequest.price <= 9 && productRequest.price !== 0 &&   <span className='errorProduct'>{errors.price}</span>}
         <button type='submit' className='btn btn-success py-2 mt-3' onClick={handleClick}  >ADD PRODUCT</button>
 
