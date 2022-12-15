@@ -4,10 +4,6 @@ import {ProductsUpdateContext, IProductsUpdateContext} from "./contexts/Products
 
 
 
-export interface IProductProps {
-  children: any
- 
-}
 
 
  const StarRating = ({thisRating}: any) => {
@@ -15,6 +11,7 @@ export interface IProductProps {
   const [hover, setHover] = useState(0);
   
   return (
+    <>
     <div className="star-rating">
       {[...Array(5)].map((star, index) => {
         index += 1;
@@ -33,12 +30,12 @@ export interface IProductProps {
                 <span className="star">&#9733;</span>
             </button></>
           
-        );
+        )
       })}
     </div>
+    </>
+  )
  
-  );
- 
-};
+}
 
 export default StarRating;

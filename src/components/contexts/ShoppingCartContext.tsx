@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 
 export interface ShoppingCartContextInterface {
   
-    articleNumber?: number
+    _id?: number
     quantity?: number | null
     cartItems?: any
     cartQuantity: number
@@ -38,20 +38,20 @@ export const ShoppingCartProvider = ({children} : IShoppingCartProps ) => {
         (quantity, item) => item.quantity + quantity, 0
     )
 
-    const getItemQuantity = (articleNumber: any) => {
-        return cartItems.find(item => item.articleNumber === articleNumber)?.quantity || 0
+    const getItemQuantity = (_id: any) => {
+        return cartItems.find(item => item._id === _id)?.quantity || 0
     }
 
-    const incrementQuantity = (cartItem: { articleNumber: any; product: any; }) => {
-        const {articleNumber, product} = cartItem
+    const incrementQuantity = (cartItem: { _id: any; product: any; }) => {
+        const {_id, product} = cartItem
 
         setCartItems(items => {
-            if (items.find(item => item.articleNumber === articleNumber) == null) {
-                return [...items, {articleNumber, product, quantity: 1}]
+            if (items.find(item => item._id === _id) == null) {
+                return [...items, {_id, product, quantity: 1}]
             }
             else {
                 return items.map(item => {
-                    if (item.articleNumber === articleNumber) {
+                    if (item._id === _id) {
                         return {...item, quantity: item.quantity +1}
                     }
                     else
@@ -62,16 +62,16 @@ export const ShoppingCartProvider = ({children} : IShoppingCartProps ) => {
 
       
     }
-    const incrementDetailQuantity = (cartItem: { articleNumber: any; product: any; }) => {
-        const {articleNumber, product} = cartItem
+    const incrementDetailQuantity = (cartItem: { _id: any; product: any; }) => {
+        const {_id, product} = cartItem
 
         setCartItems(items => {
-            if (items.find(item => item.articleNumber === articleNumber) == null) {
-                return [...items, {articleNumber, product, quantity: 5}]
+            if (items.find(item => item._id === _id) == null) {
+                return [...items, {_id, product, quantity: 5}]
             }
             else {
                 return items.map(item => {
-                    if (item.articleNumber === articleNumber) {
+                    if (item._id === _id) {
                         return {...item, quantity: item.quantity + 5}
                     }
                     else
@@ -82,16 +82,16 @@ export const ShoppingCartProvider = ({children} : IShoppingCartProps ) => {
 
       
     }
-    const decrementQuantity = (cartItem: { articleNumber: any; }) => {
-        const {articleNumber} = cartItem
+    const decrementQuantity = (cartItem: { _id: any; }) => {
+        const {_id} = cartItem
 
         setCartItems(items => {
-            if (items.find(item => item.articleNumber === articleNumber).quantity === 1) {
-                return items.filter(item => item.articleNumber !== articleNumber)
+            if (items.find(item => item._id === _id).quantity === 1) {
+                return items.filter(item => item._id !== _id)
             }
             else {
                 return items.map(item => {
-                    if (item.articleNumber === articleNumber) {
+                    if (item._id === _id) {
                         return {...item, quantity: item.quantity -1 }
                     }
                     else
@@ -104,9 +104,9 @@ export const ShoppingCartProvider = ({children} : IShoppingCartProps ) => {
     
 
   
-    const removeItem = (articleNumber: any) => {
+    const removeItem = (_id: any) => {
         setCartItems(items => {
-            return items.filter(item => item.articleNumber !== articleNumber)
+            return items.filter(item => item._id !== _id)
         })
     }
 

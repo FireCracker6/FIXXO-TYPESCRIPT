@@ -13,7 +13,7 @@ export interface IProductsUpdateContext {
     get: (_id: number) => void
     getAll: () => void
     update: (e: React.FormEvent) => void
-    remove: (articleNumber: number) => void
+    remove: (_id: number) => void
 
 
 }
@@ -24,9 +24,9 @@ export const useProductsUpdateContext = () => { return useContext(ProductsUpdate
 
 const ProductsUpdateProvider = ({children} : ProductProviderProps) => {
 
-    const baseUrl = 'http://localhost:5000/api/products'
+    const baseUrl = 'http://localhost:8000/api/products'
     const product_default: Product = {
-        articleNumber: 0,
+        _id: 0,
         title: '',
         category: '',
         imageURL: '',
@@ -48,7 +48,7 @@ const ProductsUpdateProvider = ({children} : ProductProviderProps) => {
     const [product, setProduct] = useState<Product>(product_default)
     const [productRequest, setProductRequest] = useState<ProductRequest>(productRequest_default)
     const [products, setProducts] = useState<Product[]>([])
-const productNumber = product.articleNumber
+const productNumber = product._id
     const create = async (e: React.FormEvent) => {
      e.preventDefault() 
       
@@ -77,8 +77,8 @@ const productNumber = product.articleNumber
 
    
     
-    const get  =async (articleNumber: any) => {
-        const result = await fetch(`${baseUrl}/product/details/${articleNumber}` )
+    const get  =async (_id: any) => {
+        const result = await fetch(`${baseUrl}/product/details/${_id}` )
         
         if (result.status === 200)
         setProduct(await result.json())

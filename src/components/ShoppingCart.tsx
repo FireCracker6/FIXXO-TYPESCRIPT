@@ -16,7 +16,7 @@ export const ShoppingCart = () => {
       </div>
       <div className="offcanvas-body" >
      { 
-      cartItems.map((item: any) => (<ShoppingCartItem   key={item.articleNumber} item={item} />))
+      cartItems.map((item: any) => (<ShoppingCartItem   key={item._id} item={item} />))
      }
     </div>
   </div>

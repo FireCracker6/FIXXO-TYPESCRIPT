@@ -9,9 +9,8 @@ import StarRating from './StarRating';
 
 
 
+
 const CreateProducts = () => {
-  const [isActive, setIsActive] = useState(false);
-  const [rate, setRate] = useState(0);
   const [isShown, setIsShown] = useState(false);
   const [isValid, setValid] = useState(true);
   const [errors, setErrors] = useState({ category: '', title: '', imageURL: '', price: ''} )
@@ -83,7 +82,8 @@ const handleClick = () => {
     setValid(true)
   
     console.log(isValid)
-    productRequest.rating = rating
+ productRequest.rating = rating
+
   }
  else  setValid(false)
 
@@ -109,7 +109,7 @@ const handleClick = () => {
     }
   
     inputPrice.value = ''
-    setRating(0)
+
 
     }
 
@@ -132,6 +132,7 @@ const handleClick = () => {
 setValid(true)
   
     inputCategory.value = 'Choose Category...'
+    setRating(0)
     
   
     
@@ -211,7 +212,7 @@ setValid(true)
  */}
   
   {/* StarRating implemented directly -- (fick inte till det annars) */}
-  <div className='P-rating'>Please choose a Rating</div>
+  <div className='P-rating'>Please choose a Rating: (default is 0)</div>
   <div className="star-rating P-Rating-Div" >
       {[...Array(5)].map((star: number, index) => {
        

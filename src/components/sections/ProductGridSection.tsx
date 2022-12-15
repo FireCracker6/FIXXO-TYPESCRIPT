@@ -2,6 +2,7 @@ import React  from 'react'
 import MobileGridCard from '../cards/MobileGridCard';
 import {Products} from '../models/productsModel'
 import ProductCard from '../cards/ProductCard';
+import {useQuery, gql} from '@apollo/client'
 
 interface IProductTilesProps {
   title: string
@@ -11,7 +12,10 @@ interface IProductTilesProps {
 
 
 
+
 const ProductGridSection: React.FC<IProductTilesProps> = ({title="", items = [] }) => {
+
+
 
  
 /* using useEffect to differ on the cards used for mobile or desktop. 
@@ -33,8 +37,9 @@ This was done at an early phase of the project. Could possibly improve code by u
     <div className="row row-cols-1 row-cols-sm-2  g-4  row-cols-md-2 g-4   row-cols-xl-4  g-4">
 
             {
+              /*   data.products.map(product => (<div key={product._id}> {product.title} </div>)) */
 
-                 items.map(product  =>   <MobileGridCard key={product.articleNumber} item={product} />)
+                 items.map(product  =>   <MobileGridCard key={product._id} item={product} />)
             
 
               }
@@ -50,7 +55,7 @@ This was done at an early phase of the project. Could possibly improve code by u
     
               <div className="product-gallery-grid"> 
               {
-                  items.map(product =>    <ProductCard key={product.articleNumber} item={product} />)
+                  items.map(product =>    <ProductCard key={product._id} item={product} />)
 
               }
            

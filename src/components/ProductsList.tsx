@@ -21,8 +21,8 @@ useEffect(()=>{
 },[])
 
 
-const removeProduct = (articleNumber:number) => {
-  remove(articleNumber)
+const removeProduct = (_id:number) => {
+  remove(_id)
 }
 
   return (
@@ -31,7 +31,7 @@ const removeProduct = (articleNumber:number) => {
    <div className='container PlistContainer mt-5'>
     <h3 className='PListHeader'>List of Products </h3>
         {
-            products.map((product: Product  ) => (<div  className='PListContent' key={product.articleNumber} >
+            products.map((product: Product  ) => (<div  className='PListContent' key={product._id} >
                 <div>  <h5>Category:</h5> <p>{product.category}</p>  </div>
                 <div className='PListImage'> <img src={product.imageURL} alt={product.title} /> </div>
 
@@ -40,11 +40,11 @@ const removeProduct = (articleNumber:number) => {
                 <div className='mb-5'>  <h5>Description:</h5> <p className='PDescription'>{product.description} </p> </div>
                 <div>  <h5>Price:</h5><p className='P-Price' >{currencyFormatter(product.price)} </p>  </div>
                 <div>  <h5>Rating:</h5><p className='P-Rating' >{product.rating} </p>  </div>
-                <div className='P-Buttons'>   <NavLink className=" btn btn-dark " to={`/updateproduct/${product.articleNumber}`} end> 
+                <div className='P-Buttons'>   <NavLink className=" btn btn-dark " to={`/updateproduct/${product._id}`} end> 
                 <i className="fa-solid fa-pen-to-square"></i>
                         </NavLink></div>
                        
-                <div className='P-Buttons'> <button className=' btn btn-danger  ' onClick={(e) =>  removeProduct(product.articleNumber)} ><i className="fa-sharp fa-solid fa-trash"></i></button>
+                <div className='P-Buttons'> <button className=' btn btn-danger  ' onClick={(e) =>  removeProduct(product._id)} ><i className="fa-sharp fa-solid fa-trash"></i></button>
                 </div>
 
                </div >) )

@@ -17,8 +17,9 @@ document.title = "Products | Fixxo."
 
   useEffect(() => {
     getProducts()
-  },[getProducts])
+  },[products, getProducts])
   
+
 
   return (
     <div>

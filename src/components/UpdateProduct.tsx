@@ -74,7 +74,7 @@ BACK TO PRODUCT LIST
 
 
       
-        <input type="hidden" value={product.articleNumber} />
+        <input type="hidden" value={product._id} />
 
         <input value={product.category} onChange={(e) =>  setProduct({...product, category: e.target.value})}   type="text" className='form-control py-2 mb-3' placeholder={product.category} />
         <div className='UpdateImage' > <img src={product.imageURL} alt={product.title}  /> </div>

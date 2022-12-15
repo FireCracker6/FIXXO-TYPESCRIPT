@@ -1,6 +1,6 @@
 export interface Product{
 
-    articleNumber: number
+    _id: number
     title: string
     category: string
     imageURL: string
