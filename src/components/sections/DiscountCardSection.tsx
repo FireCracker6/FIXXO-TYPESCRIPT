@@ -20,7 +20,7 @@ const DiscountCard2: React.FC<Props> = ( {items = []}) => {
   
        {
 
-          items.map(product =>    <DiscountCardMobile key={product.articleNumber} item={product} />)
+          items.map(product =>    <DiscountCardMobile key={product._id} item={product} />)
 
 
 }
@@ -34,7 +34,7 @@ const DiscountCard2: React.FC<Props> = ( {items = []}) => {
        <h4>Best&nbsp;Selling&nbsp;Product</h4>
        {
 
-items.map(product =>    <DiscountCardMobile key={product.articleNumber} item={product} />)
+items.map(product =>    <DiscountCardMobile key={product._id} item={product} />)
 
 
 }
@@ -51,7 +51,7 @@ items.map(product =>    <DiscountCardMobile key={product.articleNumber} item={pr
        <h4>Top&nbsp;Ratings</h4>
        {
 
-items.map(product =>    <DiscountCardMobile key={product.articleNumber} item={product} />)
+items.map(product =>    <DiscountCardMobile key={product._id} item={product} />)
 
 
 }

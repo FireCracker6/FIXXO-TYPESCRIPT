@@ -36,7 +36,7 @@ const ProductCard: React.FC<Props> = ( {item}) => {
                       <li><button data-testid="addToCart" title='incrementQuantity'  onClick={() => incrementQuantity({_id: item._id, product: item})}  className='productButton'><i className="fa-light fa-bag-shopping"></i></button></li>
                   </ul>
               
-               <div className="quickview-buttons"> <NavLink  to={`/productdetails/${item.id}`} className="quickview-button quick-btn-border">QUICK VIEW</NavLink>
+               <div className="quickview-buttons"> <NavLink  to={`/productdetails/${item._id}`} className="quickview-button quick-btn-border">QUICK VIEW</NavLink>
                   </div>   
                  
               

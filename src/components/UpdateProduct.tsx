@@ -4,6 +4,7 @@ import {IProductsUpdateContext, ProductsUpdateContext} from './contexts/Products
 import { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { currencyFormatter } from './utilities/currencyFormatter'
+import ProductUpdateForm from './ProductUpdateForm'
 
 
 const UpdateProduct= () => {
@@ -51,7 +52,7 @@ let message = ''
   return (
 
     <>
-    
+    <ProductUpdateForm />
     <div className='container d-flex justify-content-center my-5'>
  
     <form onSubmit={update}   className="d-grid mb-5">
@@ -110,11 +111,7 @@ BACK TO PRODUCT LIST
                 <div>  <h5>Price:</h5><p className='P-Price' >{currencyFormatter(product.price)} </p>  </div>
                 <div>  <h5>Rating:</h5><p className='P-Rating' >{product.rating} </p>  </div>
 
-             {/*    <div>  <h5>Title:</h5> <input type="text" className='P-Title' value={product.title} disabled/>   </div>
-                <div>  <h5>Tag:</h5> <input type="text" className='P-Title' value={product.tag} disabled/>   </div>
-                <div>  <h5>Description:</h5> <input type="text" className='P-Description' value={product.description} disabled/>   </div>
-                <div>  <h5>Price:</h5><input type="text" className='P-Title' value={product.price} disabled/>  </div>
-                <div>  <h5>Rating:</h5> <input type="text" className='P-Title' value={product.rating} disabled/>   </div> */}
+          
               
                 </div> 
                 </div>

@@ -41,7 +41,7 @@ const SpecialOffer2: React.FC<Props> = ({items = []}) => {
                         <div className="row row-cols-1 row-cols-sm-2  g-4  row-cols-md-2 g-4   row-cols-xl-4  g-4">
      
                      {
-                items.map(product =>    <MobileGridCard key={product.articleNumber} item={product} />)
+                items.map(product =>    <MobileGridCard key={product._id} item={product} />)
 
               }
           
@@ -70,7 +70,7 @@ const SpecialOffer2: React.FC<Props> = ({items = []}) => {
                               <div className="products-grid-wrapper">
         
                               {
-                items.map(product =>    <ProductCard key={product.articleNumber} item={product} />)
+                items.map(product =>    <ProductCard key={product._id} item={product} />)
 
               }
            

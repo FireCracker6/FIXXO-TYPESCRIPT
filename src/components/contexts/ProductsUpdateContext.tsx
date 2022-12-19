@@ -35,7 +35,12 @@ const ProductsUpdateProvider = ({children} : ProductProviderProps) => {
         price: 0,
         rating: 0,
     }
+    const [product, setProduct] = useState<Product>(product_default)
+      console.log(product._id)
     const productRequest_default: ProductRequest = { 
+        
+       _id: 0,
+    
         title: '',
         category: '',
         imageURL: '',
@@ -45,10 +50,9 @@ const ProductsUpdateProvider = ({children} : ProductProviderProps) => {
         rating: 0,
     }
 
-    const [product, setProduct] = useState<Product>(product_default)
     const [productRequest, setProductRequest] = useState<ProductRequest>(productRequest_default)
     const [products, setProducts] = useState<Product[]>([])
-const productNumber = product._id
+    const productNumber = product._id
     const create = async (e: React.FormEvent) => {
      e.preventDefault() 
       

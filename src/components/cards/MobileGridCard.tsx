@@ -44,9 +44,9 @@ const MobileGridCard: React.FC<Props>= ({item}) => {
                                 <ul className="card-menu ">
                                 <li><button onClick={addToWishList} className='productButton'><i className="fa-light fa-heart "></i></button></li>
                                 <li><button  onClick={addToCompare} className='productButton' ><i className="fa-light fa-code-compare fa-flip-vertical"></i></button></li>
-                                <li><button  onClick={() => incrementQuantity({articleNumber: item.articleNumber, product: item})} className='productButton'><i className="fa-light fa-bag-shopping"></i></button></li>
+                                <li><button  onClick={() => incrementQuantity({_id: item._id, product: item})} className='productButton'><i className="fa-light fa-bag-shopping"></i></button></li>
                                 </ul>
-                                <div className="quickview-buttons"> <NavLink to={`/productdetails/${item.articleNumber}`}  className="quickview-button quick-btn-border">QUICK VIEW</NavLink>
+                                <div className="quickview-buttons"> <NavLink to={`/productdetails/${item._id}`}  className="quickview-button quick-btn-border">QUICK VIEW</NavLink>
                                 </div>   
                             
                                 <div className="card-background">  </div>
@@ -94,9 +94,9 @@ const MobileGridCard: React.FC<Props>= ({item}) => {
                     <ul className="card-menu ">
                             <li><button className='productButton'><i className="fa-light fa-heart "></i></button></li>    
                             <li><button className='productButton' ><i className="fa-light fa-code-compare fa-flip-vertical"></i></button></li>
-                            <li><button onClick={() => incrementQuantity({articleNumber: item.articleNumber, product: item})} className='productButton'><i className="fa-light fa-bag-shopping"></i></button></li>
+                            <li><button onClick={() => incrementQuantity({_id: item._id, product: item})} className='productButton'><i className="fa-light fa-bag-shopping"></i></button></li>
                     </ul>
-                    <div className="quickview-buttons"> <NavLink to={`/productdetails/${item.articleNumber}`}  className="quickview-button quick-btn-border">QUICK VIEW</NavLink>
+                    <div className="quickview-buttons"> <NavLink to={`/productdetails/${item._id}`}  className="quickview-button quick-btn-border">QUICK VIEW</NavLink>
                     </div>   
                 
                     <div className="card-background">  </div>

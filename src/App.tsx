@@ -26,6 +26,7 @@ import UpdateProduct from './components/UpdateProduct';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+import UpdateProductGRAPHQL from './components/UpdateProductGRAPHQL';
 
 
 const App = () => {
@@ -43,7 +44,7 @@ const App = () => {
                 <ProductsUpdateProvider>
               <Routes>
                 <Route path='/productsbackend' element={<Products_Backend />} />
-                <Route path='/updateproduct/:id' element={<UpdateProduct/>} />
+                <Route path='/updateproduct/:id' element={<UpdateProductGRAPHQL/>} />
                 <Route path='/' element={<HomeView/>}/>
                 <Route path='/products'   element={<ProductsView title={'Products'}   /> }/>
                 <Route path='/productdetails/:id'  element={<ProductDetailsView  />}/>

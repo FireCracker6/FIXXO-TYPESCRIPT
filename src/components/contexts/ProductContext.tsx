@@ -68,17 +68,21 @@ export const ProductProvider= ({children}: IProductProps)  => {
          */
 
     }
-    
+     
+    const GET_FEATURED_QUERY = gql`{ products { _id, title, imageURL, category, description, price, tag, rating }}`
+   
+     const getFeatured = useQuery(GET_FEATURED_QUERY)
     const getFeaturedProducts = async (take: number = 0) => {
         let baseURL = `${url}`
  
          if (take !== 0) 
         baseURL +=`/featured/${take}`
-      
+      const baseFeatured = baseURL
  
         const res = await fetch(baseURL)
-        setFeaturedProducts(await res.json())
+        setFeaturedProducts(await (res.json()))
         console.log('baseURL ' + baseURL)
+        console.log(getFeatured.data)
     }
      const getDiscountProducts = async (take : number) => {
         let baseDiscountURL = `${url}`

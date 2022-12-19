@@ -14,24 +14,40 @@ import NavbarGlobal from '../components/NavbarGlobal';
 import ProductGridSection from '../components/sections/ProductGridSection';
 import DiscountCard2 from '../components/sections/DiscountCardSection';
 import { useEffect } from 'react';
-import { ProductContextInterface } from '../components/contexts/ProductContext';
+/* import { ProductContextInterface } from '../components/contexts/ProductContext'; */
 import {ProductContext } from '../components/contexts/ProductContext';
 import PamelaReif  from '../components/PamelaReif';
 import DiscountBanner from '../components/DiscountBanner';
-
+import {ProductContextInterface, useProductContext } from '../components/contexts/ProductContext'
 const HomeView = () => {
-  const {featuredProducts, getFeaturedProducts}  = React.useContext(ProductContext) as ProductContextInterface
+ /*  const {featuredProducts, getFeaturedProducts}  = React.useContext(ProductContext) as ProductContextInterface */
   const {discountProducts, getDiscountProducts}  = React.useContext(ProductContext) as ProductContextInterface
+
+
+/*   useEffect(() => { */
+    
+/*     getFeaturedProducts(4) */
+   /*  getDiscountProducts(3) */
+  
+ /*    return () => { */
+/*       
+      getFeaturedProducts(4) */
+     /*  getDiscountProducts(3)  */
+   /*  } */
+/*   }, [featuredProducts, getFeaturedProducts(4)]) */
+
+  const {featuredProducts, getFeaturedProducts} = useProductContext() as ProductContextInterface
 
   useEffect(() => {
     getFeaturedProducts(4)
     getDiscountProducts(3)
-  
+
     return () => {
       getFeaturedProducts(4)
-      getDiscountProducts(3) 
+      getDiscountProducts(3)
     }
-  }, [])
+  },[])
+  
 
 
 document.title = "Welcome To Fixxo." 
@@ -47,7 +63,7 @@ document.title = "Welcome To Fixxo."
         <SpecialOffer1  items={featuredProducts} />
         <SpecialOffer2  items={featuredProducts}  />  
         <DiscountBanner title={"Up to 70% off*"} />
-        <DiscountCard2 items={discountProducts}/>
+        <DiscountCard2 items={discountProducts}/> 
         <HomeFooter />
         <Footer />
  

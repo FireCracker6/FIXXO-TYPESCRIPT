@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 
 import {ProductsUpdateContext, IProductsUpdateContext } from './contexts/ProductsUpdateContext'
+import ProductUpdateForm from './ProductUpdateForm';
 import StarRating from './StarRating';
 
 
@@ -176,6 +177,8 @@ setValid(true)
 
   return (
 <>
+
+<ProductUpdateForm />
 
     <form onSubmit={create}  className="d-grid mb-5">
             <h1>HI THERE !</h1>

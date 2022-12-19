@@ -16,7 +16,7 @@ interface IProductTilesProps {
 const ProductGridSection: React.FC<IProductTilesProps> = ({title="", items = [] }) => {
 
 
-
+console.log(items)
  
 /* using useEffect to differ on the cards used for mobile or desktop. 
 This was done at an early phase of the project. Could possibly improve code by using one card only. //LS */

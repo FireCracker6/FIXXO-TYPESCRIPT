@@ -119,7 +119,7 @@ export const ProductDetailsInfoGrid: React.FC<IProductTilesProps> = ({ items = [
   
                      
                 </div>
-               <div className="cart-red-buttons "><button onClick={() => incrementQuantity({articleNumber: product.articleNumber, product: product }  )} className="post-button">Add To Cart</button>
+               <div className="cart-red-buttons "><button onClick={() => incrementQuantity({_id: product._id, product: product }  )} className="post-button">Add To Cart</button>
                     </div>  
             </div>
        

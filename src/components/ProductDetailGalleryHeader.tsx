@@ -44,7 +44,7 @@ export const ProductDetailGalleryHeader:React.FC<Props> = ({title, items = []}) 
 
         
      {
-                items.map(product =>    <ProductCard key={product.articleNumber} item={product} />)
+                items.map(product =>    <ProductCard key={product._id} item={product} />)
 
               }
            
@@ -75,7 +75,7 @@ export const ProductDetailGalleryHeader:React.FC<Props> = ({title, items = []}) 
 
     
     {
-                items.map(product =>    <ProductCard key={product.articleNumber} item={product} />)
+                items.map(product =>    <ProductCard key={product._id} item={product} />)
 
               }
     </div>

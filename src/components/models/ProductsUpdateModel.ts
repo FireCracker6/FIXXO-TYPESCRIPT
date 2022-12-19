@@ -11,6 +11,8 @@ export interface Product{
   
 }
 export interface ProductRequest {
+
+    _id: number 
    
     title: string
     category: string
