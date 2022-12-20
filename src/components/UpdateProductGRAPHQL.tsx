@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useQuery, gql, useMutation} from '@apollo/client'
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import ProductCard from './cards/ProductCard'
 
 const UpdateProductGRAPHQL = () => {
@@ -43,19 +43,18 @@ const GET_ALL_PRODUCTS = gql`
     
   }
   `
-  
 
   const getAll= useQuery(GET_ALL_PRODUCTS)
 
   const default_value = {_id: id, title: '', vendorId: '0', imageURL: '', category: '', description: '', price: '', tag: '', rating: ''}
   
   const [product, setProduct] = useState(default_value)
-  const {loading, error, data} = useQuery(GET_PRODUCT_QUERY)
-
-
- 
+  const {loading, error, data, refetch} = useQuery(GET_PRODUCT_QUERY)
   const [updateProduct] = useMutation(UPDATE_PRODUCT_QUERY) 
-  
+ 
+
+
+
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
@@ -68,9 +67,11 @@ const GET_ALL_PRODUCTS = gql`
     console.log('this product: ' +  data.product._id, data.product.title, data.product.imageURL, data.product.category, data.product.tag, data.product.price, data.product.rating)
     // empty the form
     setProduct(default_value)
-    
+    refetch(data)
    
   }
+
+
 
   const populateVendors = () => {
     if (loading) return <option disabled>Laddar...</option>
@@ -80,7 +81,15 @@ const GET_ALL_PRODUCTS = gql`
       <>
     
       <div className='container justify-content-center mb-5'>
+
+    
       <form onSubmit={handleSubmit}>
+      <div>   <NavLink className=" d-grid btn btn-dark my-5 " to={`/productsbackend`} end>  
+
+BACK TO PRODUCT LIST
+
+</NavLink></div>
+
         <input type="hidden" value={id} />
       <input value={product.title} onChange={(e) =>  setProduct({...product, title: e.target.value})} type="text" className='form-control py-2 mb-3' placeholder={data.product.title}/>
        <input value={product.category} onChange={(e) =>  setProduct({...product, category: e.target.value})} type="text" className='form-control py-2 mb-3' placeholder={data.product.category}/>

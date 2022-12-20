@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
 
+// OLD PRODUCT CREATE FORM WITHOUT GRAPHQL -- THIS IMPLEMENTS VALIDATION AND STAR RATING  -- THIS COULD BE IMPLEMENTED INTO THE GRAPHQL FORM IF THERE WAS MORE TIME TO DO IT !!! 
+
 
 import {ProductsUpdateContext, IProductsUpdateContext } from './contexts/ProductsUpdateContext'
 import ProductUpdateForm from './ProductUpdateForm';

@@ -17,7 +17,7 @@ const ProductCreateForm = () => {
 
   const default_value = {title: '', vendorId: '0', imageURL: '', category: '', description: '', price: '', tag: '', rating: ''}
   const [product, setProduct] = useState(default_value)
-  const {loading, error, data, refetch} = useQuery(GET_VENDORS_QUERY)
+  const {loading, error, data} = useQuery(GET_VENDORS_QUERY)
   const [addProduct] = useMutation(POST_PRODUCT_QUERY) 
 
   const populateVendors = () => {
@@ -36,13 +36,15 @@ const ProductCreateForm = () => {
     e.preventDefault()
     addProduct({variables:  product}) 
     setProduct(default_value)
-    refetch()
+    
+    
   }
+  
 
 
   return (
     <form className='container' onSubmit={handleSubmit}>
-    <h5 className='mb-5'>Lägg till en Leverantör</h5>
+    <h5 className='mb-5'>Lägg till en Product</h5>
     <input type='hidden' value={product.title} onChange={(e) => setProduct({...product, title: e.target.value})} className='form-control mb-3' placeholder='Lägg till en produkt titel'/>
     <input value={product.title} onChange={(e) => setProduct({...product, title: e.target.value})} className='form-control mb-3' placeholder='Lägg till en produkt titel'/>
     
