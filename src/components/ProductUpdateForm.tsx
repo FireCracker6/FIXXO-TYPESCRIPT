@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {useQuery, gql, useMutation} from '@apollo/client'
 import { useParams } from 'react-router-dom';
 import ProductsUpdateContext, { IProductsUpdateContext } from './contexts/ProductsUpdateContext';
+import { title } from 'process';
 
 const ProductUpdateForm = () => {
 
@@ -34,12 +35,13 @@ const ProductUpdateForm = () => {
 
   `
 
-  const GET_PRODUCTS_QUERY = gql`{ products { _id, title, imageURL, category, description, price, tag, rating, }}`
+  const GET_PRODUCTS_QUERY = gql`{ products { _id, title, vendorId, imageURL, category, description, price, tag, rating, }}`
 
   const {loading, error, data} = useQuery(GET_PRODUCT_QUERY)
   const [updateProduct] = useMutation(PUT_PRODUCTUPDATE_QUERY)
-  const default_value = { _id: id, title: '', vendorId: '0', imageURL: '', category: '', description: '', price: '', tag: '', rating: ''}
+  const default_value = { _id: id, title: '', vendorId: 0, imageURL: '', category: '', description: '', price: '', tag: '', rating: ''}
   const [product, setProduct] = useState(default_value)
+  const update_value = { _id: id, title: data.title, vendorId: data.vendorId, imageURL: data.imageURL, category: '', description: '', price: '', tag: '', rating: ''}
   const populateVendors = () => {
     if (loading) return <option disabled>Laddar...</option>
     if (error) return <option disabled>Ett fel uppstod...</option>
@@ -58,7 +60,7 @@ const ProductUpdateForm = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault()
     updateProduct({variables:  product}) 
-    setProduct(default_value)
+/*     setProduct(default_value) */
   }
 
 

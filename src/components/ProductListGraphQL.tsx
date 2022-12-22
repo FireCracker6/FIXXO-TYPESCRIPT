@@ -4,19 +4,13 @@ import { currencyFormatter } from './utilities/currencyFormatter'
 import { NavLink, useParams } from 'react-router-dom'
 
 
+// GET ALL MONGODB PRODUCTS FROM GRAPHQL IN A LIST -- LINK TO UPDATE OR DELETE PRODUKT
 
-
-
-
-
-  
-
-const ProductListGRAPHQL = () => {
+const ProductListGRAPHQL = ({}) => {
 
     const {id} = useParams()
   
 
-    
 
     const GET_PRODUCTS_QUERY = gql`{ products { _id, title, imageURL, category, description, price, tag, rating, }}`
 
@@ -36,9 +30,12 @@ const ProductListGRAPHQL = () => {
     const [product, setProduct] = useState(default_value)
     const [deleteProduct] = useMutation(DELETE_PRODUCT_QUERY) 
     const { loading, error, data, refetch } = useQuery(GET_PRODUCTS_QUERY)
-    const [list, setList] = React.useState(default_value);
-    
+   /*  const updateList = (_id: any) => {
 
+      refetch(data)
+  }
+
+ */
     
     const removeProduct = (_id: any) => {
 
@@ -49,7 +46,9 @@ const ProductListGRAPHQL = () => {
         refetch(data)
     }
 
-
+    const updateList = () => {
+        refetch(data)
+    }
 
   if (loading)  {
    
@@ -58,6 +57,7 @@ const ProductListGRAPHQL = () => {
   if (error) return <p>Ett fel uppstod!: {error.message}</p>
 
   return (
+    <>
     <div className='container PlistContainer mt-5'>
        
     <h3 className='PListHeader'>List of Products </h3>
@@ -82,8 +82,9 @@ const ProductListGRAPHQL = () => {
                </div >) )
         }
         </div>
-
- 
+        {/* Updating list if a new product is created -- quick fix */}
+<div className='updateButton my-3'><button className='btn btn-secondary' onClick={(e) =>  updateList()} >Update ProductList</button> </div>
+</>
   )
 }
 

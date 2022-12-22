@@ -4268,7 +4268,32 @@ footer .social-media a:hover {
     width: 500px !important;
   }
 }
+.updateContainer {
+  background-color: rgba(255, 210, 247, 0.3098039216);
+  display: grid;
+}
+
+.updateLabel {
+  font-size: 0.8rem;
+  margin-left: 10px;
+  font-weight: bold;
+  color: rgba(37, 2, 31, 0.6392156863);
+}
+
+.updateButton {
+  display: grid;
+  width: 100%;
+}
+
+.updateImage {
+  max-width: 200px;
+  max-height: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .PlistContainer {
+  width: 100%;
   display: grid;
   grid-auto-flow: row;
   -webkit-box-pack: center;
@@ -4311,17 +4336,19 @@ footer .social-media a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
+  /*   width: 100%; */
   border: 1px solid rgba(0, 0, 0, 0.137254902);
+  font-size: 1rem;
 }
 .PlistContainer .PDescription {
   display: block;
   width: 200px;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 .PlistContainer .P-Price {
   display: block;
   width: 100px;
+  font-size: 1rem;
 }
 .PlistContainer .P-Buttons {
   display: inline-block;
@@ -4336,7 +4363,8 @@ footer .social-media a:hover {
 }
 .PlistContainer .P-Title {
   display: block;
-  width: 200px;
+  width: 150px;
+  font-size: 1rem;
   border: none !important;
   background-color: transparent !important;
 }
@@ -4348,6 +4376,7 @@ footer .social-media a:hover {
   display: block;
   width: 100px;
   margin-right: 10px;
+  font-size: 1rem;
 }
 
 .UpdateImage img {

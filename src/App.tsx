@@ -44,9 +44,10 @@ const App = () => {
                 <ProductsUpdateProvider>
               <Routes>
                 <Route path='/productsbackend' element={<Products_Backend />} />
-                <Route path='/updateproduct/:id' element={<UpdateProductGRAPHQL/>} />
+                <Route path='/updateproduct/:id' element={<UpdateProductGRAPHQL/>}  />
                 <Route path='/' element={<HomeView/>}/>
                 <Route path='/products'   element={<ProductsView title={'Products'}   /> }/>
+                <Route path='/categories'   element={<CategoriesView    /> }/>
                 <Route path='/productdetails/:id'  element={<ProductDetailsView  />}/>
                 <Route path='/productdetails/:id' element={<ProductDetailGalleryHeader title={'Related Products'} items={[]} />}/>
                 <Route path='/users' element={<UserList />}/>

@@ -1,0 +1,24 @@
+
+
+.updateContainer {
+    background-color: #ffd2f74f;
+    display: grid;
+}
+.updateLabel {
+  
+    font-size: 0.8rem;
+   margin-left: 10px;
+    font-weight: bold;
+    color:  #25021fa3;
+}
+ .updateButton {
+ 
+    display: grid;
+    width: 100%;
+
+}
+.updateImage {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+}

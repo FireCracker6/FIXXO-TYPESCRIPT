@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom'
 import { currencyFormatter } from './utilities/currencyFormatter'
 import ProductUpdateForm from './ProductUpdateForm'
 
+// OLD BEFORE GRAPHQL UPDATE METHOD
 
 const UpdateProduct= () => {
   const [isShown, setIsShown] = useState(false);
@@ -26,8 +27,7 @@ const UpdateProduct= () => {
     
   
 
-/* console.log(product.price)
-console.log(id) */
+
 
 
 let message = ''
